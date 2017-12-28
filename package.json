@@ -4,16 +4,26 @@
    "version": "1.0.0",
    "private": false,
    "main": "./src/index.ts",
+   "engines": {
+      "node": ">=8.0.0"
+   },
    "author": {
       "name": "Jason Abbott"
    },
+   "bin": {
+      "toba-test": "dist/cmd.js"
+   },
    "license": "MIT",
    "scripts": {
-      "test": "node_modules/.bin/mocha --recursive"
+      "test": "node_modules/.bin/mocha --recursive",
+      "prepublish": "tsc -p tsconfig.bin.json"
    },
    "devDependencies": {
       "@toba/tslint": "*",
       "@types/chai": "^4.0.1",
+      "typescript": "^2.6.2"
+   },
+   "dependencies": {
       "chai": "^4.1.0",
       "ignore-styles": "^5.0.1",
       "jsdom": "^11.5.1",
@@ -23,8 +33,7 @@
       "react-dom": "^16.2.0",
       "ts-node": "^4.1.0",
       "tsconfig-paths": "^2.6.0",
-      "tslint": "^5.5.0",
-      "typescript": "^2.6.2"
+      "tslint": "^5.5.0"
    },
    "repository": {
       "type": "git",

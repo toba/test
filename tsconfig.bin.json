@@ -1,15 +1,14 @@
 {
    "compilerOptions": {
       "target": "es5",
-      "module": "es2015",
+      "module": "commonjs",
       "newLine": "LF",
       "noImplicitAny": true,
       "noImplicitThis": true,
-      // cannot be true because that blocks mocha, React and others
       "noUnusedLocals": false,
       "noUnusedParameters": false,
       "outDir": "./dist",
-      "sourceMap": true,
+      "sourceMap": false,
       "allowJs": false,
       "removeComments": true,
       "alwaysStrict": true,
@@ -17,21 +16,10 @@
       "skipLibCheck": true,
       "allowSyntheticDefaultImports": false,
       "forceConsistentCasingInFileNames": true,
-      "lib": [
-         "dom",
-         "es2015",
-      ],
-      "typeRoots": [
-         "./node_modules/@types",
-         "./src/types"
-      ],
+      "lib": ["dom", "es2015"],
+      "typeRoots": ["./node_modules/@types", "./src/types"],
       "baseUrl": "."
    },
-   "include": [
-      "./src/**/*.ts"
-   ],
-   "exclude": [
-      "./src/types/",
-      "./node_modules/"
-   ]
+   "include": ["./src/cmd.ts"],
+   "exclude": ["./src/types/", "./node_modules/"]
 }

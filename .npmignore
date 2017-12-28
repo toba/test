@@ -1,4 +1,7 @@
 .vscode
 .prettierrc
+dist
+tsconfig.json
+tslint.json
 node_modules
 yarn.lock

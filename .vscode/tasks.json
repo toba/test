@@ -1,0 +1,28 @@
+{
+   "version": "2.0.0",
+   "tasks": [
+      {
+         "label": "Build",
+         "command": "tsc -p tsconfig.bin.json",
+         "type": "shell",
+         "group": "build",
+         "problemMatcher": [
+            "$tsc"
+         ]
+      },
+      {
+         "label": "Test",
+         "options": {
+            "env": {
+               "TS_NODE_COMPILER_OPTIONS": "{\"module\": \"commonjs\", \"target\": \"es5\"}"
+            }
+         },
+         "command": "node_modules/.bin/mocha --require ts-node/register --require ignore-styles --require tsconfig-paths/register ./**/*.test.ts*",
+         "type": "shell",
+         "group": "test",
+         "problemMatcher": [
+            "$tsc"
+         ]
+      }
+   ]
+}
