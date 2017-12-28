@@ -6,11 +6,24 @@
          "type": "node",
          "request": "launch",
          "program": "${workspaceRoot}/dist/cmd.js",
-         "cwd": "${workspaceRoot}",
-         "env": {},
+         "cwd": "${workspaceRoot}"
+      },
+      {
+         "name": "CLI",
+         "type": "node",
+         "request": "launch",
+         "program": "${workspaceRoot}/node_modules/.bin/mocha",
+         "env": {
+            "TS_NODE_COMPILER_OPTIONS": "{\"module\": \"commonjs\", \"target\": \"es5\"}"
+         },
          "args": [
-            "-debug=true",
-            "-silent=true"
+            "--require",
+            "ts-node/register",
+            "--require",
+            "ignore-styles",
+            "--require",
+            "tsconfig-paths/register",
+            "./src/*.test.ts*"
          ]
       }
    ]
