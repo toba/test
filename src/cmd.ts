@@ -2,9 +2,9 @@
 import * as Mocha from "mocha";
 import * as fs from "fs";
 import * as path from "path";
-import "ignore-styles";
 import "ts-node/register";
 import "tsconfig-paths/register";
+import "ignore-styles";
 
 // node_modules/.bin/mocha
 // --require ts-node/register
