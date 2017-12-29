@@ -1,7 +1,10 @@
 .vscode
 .prettierrc
-dist
+.travis.yml
+CHANGELOG.md
 tsconfig.json
+tsconfig.bin.json
 tslint.json
 node_modules
 yarn.lock
+src/*.test.ts

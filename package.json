@@ -1,7 +1,7 @@
 {
    "name": "@toba/test",
    "description": "Toba Test",
-   "version": "1.0.0-beta.1",
+   "version": "1.0.0-beta.3",
    "private": false,
    "main": "./src/index.ts",
    "engines": {
@@ -11,7 +11,7 @@
       "name": "Jason Abbott"
    },
    "bin": {
-      "toba-test": "dist/cmd.js"
+      "toba-test": "./dist/cmd.js"
    },
    "license": "MIT",
    "scripts": {
@@ -24,9 +24,10 @@
    },
    "devDependencies": {
       "@toba/tslint": "*",
-      "@types/chai": "^4.0.1"
+      "tslint": "^5.5.0"
    },
    "dependencies": {
+      "@types/chai": "^4.0.1",
       "chai": "^4.1.0",
       "ignore-styles": "^5.0.1",
       "jsdom": "^11.5.1",
@@ -34,8 +35,7 @@
       "mock-socket": "^7.1.0",
       "prettier": "^1.9.2",
       "ts-node": "^4.1.0",
-      "tsconfig-paths": "^2.6.0",
-      "tslint": "^5.5.0"
+      "tsconfig-paths": "^2.6.0"
    },
    "repository": {
       "type": "git",
