@@ -11,7 +11,7 @@
       "name": "Jason Abbott"
    },
    "bin": {
-      "toba-test": "./dist/cmd.js"
+      "toba-test": "./bin/cli.js"
    },
    "license": "MIT",
    "scripts": {
@@ -19,7 +19,8 @@
       "prepare": "tsc -p tsconfig.bin.json"
    },
    "peerDependencies": {
-      "typescript": "^2.6.2"
+      "typescript": "^2.6.2",
+      "react-dom": "^16.2.0"
    },
    "devDependencies": {
       "@toba/tslint": "*",
@@ -33,7 +34,6 @@
       "mocha": "^4.0.0",
       "mock-socket": "^7.1.0",
       "prettier": "^1.9.2",
-      "react-dom": "^16.2.0",
       "ts-node": "^4.1.0",
       "tsconfig-paths": "^2.6.0"
    },
