@@ -17,7 +17,16 @@
                "TS_NODE_COMPILER_OPTIONS": "{\"module\": \"commonjs\", \"target\": \"es5\"}"
             }
          },
-         "command": "node_modules/.bin/mocha --require ts-node/register --require ignore-styles --require tsconfig-paths/register ./**/*.test.ts*",
+         "command": "node_modules/.bin/mocha",
+         "args": [
+            "--require",
+            "ts-node/register",
+            "--require",
+            "ignore-styles",
+            // "--require",
+            // "ts-node/register",
+            "./**/*.test.ts*"
+         ],
          "type": "shell",
          "group": "test",
          "problemMatcher": [
