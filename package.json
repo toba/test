@@ -1,7 +1,7 @@
 {
    "name": "@toba/test",
    "description": "Toba Test",
-   "version": "1.0.0-beta.3",
+   "version": "1.0.0-beta.4",
    "private": false,
    "main": "./src/index.ts",
    "engines": {
@@ -16,7 +16,7 @@
    "license": "MIT",
    "scripts": {
       "test": "node_modules/.bin/mocha --recursive",
-      "prepublish": "tsc -p tsconfig.bin.json"
+      "prepare": "tsc -p tsconfig.bin.json"
    },
    "peerDependencies": {
       "typescript": "^2.6.2",
