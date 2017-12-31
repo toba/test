@@ -1,7 +1,7 @@
 {
    "name": "@toba/test",
    "description": "Toba Test",
-   "version": "1.0.0-beta.5",
+   "version": "1.0.0-beta.7",
    "private": false,
    "main": "./src/index.ts",
    "engines": {
@@ -19,23 +19,16 @@
       "prepare": "tsc -p tsconfig.bin.json"
    },
    "peerDependencies": {
-      "typescript": "^2.6.2",
-      "react-dom": "^16.2.0"
+      "typescript": "^2.6.2"
    },
    "devDependencies": {
       "@toba/tslint": "*",
       "tslint": "^5.5.0"
    },
    "dependencies": {
-      "@types/chai": "^4.0.1",
-      "chai": "^4.1.0",
-      "ignore-styles": "^5.0.1",
-      "jsdom": "^11.5.1",
-      "mocha": "^4.0.0",
-      "mock-socket": "^7.1.0",
+      "jest": "^22.0.4",
       "prettier": "^1.9.2",
-      "ts-node": "^4.1.0",
-      "tsconfig-paths": "^2.6.0"
+      "ts-jest": "^22.0.0"
    },
    "repository": {
       "type": "git",
