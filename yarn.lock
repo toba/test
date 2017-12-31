@@ -11,11 +11,16 @@
     js-tokens "^3.0.0"
 
 "@toba/tslint@*":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@toba/tslint/-/tslint-1.0.1.tgz#6f791d1e15453a71df9b36d449b3ca75d346e260"
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@toba/tslint/-/tslint-1.0.2.tgz#38583b63b33d212f9a921b854e7735aaedd9b147"
   dependencies:
+    tslint "^5.8.0"
     tslint-config-prettier "^1.6.0"
     tslint-consistent-codestyle "^1.10.0"
+
+"@types/jest@^22.0.0":
+  version "22.0.0"
+  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-22.0.0.tgz#23009941178aad7979a9591e026f7a96054d7bc0"
 
 "@types/node@*":
   version "8.5.2"
@@ -2107,10 +2112,6 @@ preserve@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/preserve/-/preserve-0.2.0.tgz#815ed1f6ebc65926f865b310c0713bcb3315ce4b"
 
-prettier@^1.9.2:
-  version "1.9.2"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.9.2.tgz#96bc2132f7a32338e6078aeb29727178c6335827"
-
 pretty-format@^22.0.3:
   version "22.0.3"
   resolved "https://registry.yarnpkg.com/pretty-format/-/pretty-format-22.0.3.tgz#a2bfa59fc33ad24aa4429981bb52524b41ba5dd7"
@@ -2650,7 +2651,7 @@ tslint-consistent-codestyle@^1.10.0:
     tslib "^1.7.1"
     tsutils "^2.12.2"
 
-tslint@^5.5.0:
+tslint@^5.8.0:
   version "5.8.0"
   resolved "https://registry.yarnpkg.com/tslint/-/tslint-5.8.0.tgz#1f49ad5b2e77c76c3af4ddcae552ae4e3612eb13"
   dependencies:
