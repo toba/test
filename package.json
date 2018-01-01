@@ -1,8 +1,11 @@
 {
    "name": "@toba/test",
    "description": "Toba Test",
-   "version": "1.0.0-beta.8",
+   "version": "1.0.0",
    "private": false,
+   "publishConfig": {
+      "access": "public"
+   },
    "main": "./src/index.ts",
    "engines": {
       "node": ">=8.0.0"
@@ -12,7 +15,7 @@
    },
    "license": "MIT",
    "scripts": {
-      "test": "node_modules/.bin/mocha --recursive"
+      "test": "jest"
    },
    "peerDependencies": {
       "typescript": "^2.6.2"
@@ -23,11 +26,22 @@
    "dependencies": {
       "@types/jest": "^22.0.0",
       "jest": "^22.0.4",
+      "jest-localstorage-mock": "^2.1.0",
       "ts-jest": "^22.0.0"
    },
    "repository": {
       "type": "git",
       "url": "https://github.com/toba/test"
+   },
+   "prettier": {
+      "arrowParens": "avoid",
+      "bracketSpacing": true,
+      "printWidth": 100,
+      "semi": true,
+      "singleQuote": false,
+      "tabWidth": 3,
+      "trailingComma": "none",
+      "useTabs": false
    },
    "bugs": {
       "url": "https://github.com/toba/test/issues"

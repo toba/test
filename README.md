@@ -7,16 +7,5 @@
 # Usage
 
 ```
-import "mocha";
-import { render, tag } from "@toba/test";
-import Button from "./button";
-
-describe("Button Component", () => {
-   it("renders button tag", () => {
-      render(Button, { title: "Test Button" }).expect({
-         tagName: tag.button,
-         innerHTML: "Test Button"
-      });
-   });
-});
+yarn add @toba/test --dev
 ```
