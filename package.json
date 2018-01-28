@@ -1,12 +1,15 @@
 {
    "name": "@toba/test",
    "description": "Toba Test",
-   "version": "1.0.0",
+   "version": "1.0.1",
    "private": false,
    "publishConfig": {
       "access": "public"
    },
-   "main": "./src/index.ts",
+   "main": "index.ts",
+   "files": [
+      "index.ts"
+   ],
    "engines": {
       "node": ">=8.0.0"
    },
@@ -24,7 +27,7 @@
       "@toba/tslint": "*"
    },
    "dependencies": {
-      "@types/jest": "^22.0.0",
+      "@types/jest": "^22.1.0",
       "jest": "^22.0.4",
       "jest-localstorage-mock": "^2.1.0",
       "ts-jest": "^22.0.0"
