@@ -18,20 +18,9 @@
       "allowSyntheticDefaultImports": false,
       "forceConsistentCasingInFileNames": true,
       "baseUrl": ".",
-      "lib": [
-         "dom",
-         "es2015"
-      ],
-      "typeRoots": [
-         "./node_modules/@types",
-         "./src/types"
-      ]
+      "lib": ["dom", "es2015"],
+      "typeRoots": ["./node_modules/@types", "./src/types"]
    },
-   "include": [
-      "./src/**/*.ts"
-   ],
-   "exclude": [
-      "./src/types/",
-      "./node_modules/"
-   ]
+   "include": ["index.ts"],
+   "exclude": ["./src/types/", "./node_modules/"]
 }

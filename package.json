@@ -1,15 +1,13 @@
 {
    "name": "@toba/test",
    "description": "Toba Test",
-   "version": "1.0.1",
+   "version": "1.0.2",
    "private": false,
    "publishConfig": {
       "access": "public"
    },
    "main": "index.ts",
-   "files": [
-      "index.ts"
-   ],
+   "files": ["index.ts"],
    "engines": {
       "node": ">=8.0.0"
    },
@@ -37,14 +35,8 @@
       "url": "https://github.com/toba/test"
    },
    "prettier": {
-      "arrowParens": "avoid",
-      "bracketSpacing": true,
-      "printWidth": 100,
-      "semi": true,
-      "singleQuote": false,
-      "tabWidth": 3,
-      "trailingComma": "none",
-      "useTabs": false
+      "singleQuote": true,
+      "tabWidth": 3
    },
    "bugs": {
       "url": "https://github.com/toba/test/issues"
