@@ -3,19 +3,19 @@
  * @type {jest.GlobalConfig}
  */
 module.exports = {
-   "transform": {
+   transform: {
       "^.+\\.txsx?$": "ts-jest"
    },
-   "collectCoverage": true,
-   "collectCoverageFrom": [
+   collectCoverage: true,
+   collectCoverageFrom: [
       "lib/*.ts"
    ],
-   "coverageReporters": [
+   coverageReporters: [
       "lcov"
    ],
-   "transformIgnorePatterns": [
+   transformIgnorePatterns: [
       "<rootDir>/node_modules/(?!@toba)"
    ],
-   "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-   "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"]
+   testRegex: "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"]
 }
