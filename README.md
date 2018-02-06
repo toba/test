@@ -9,3 +9,9 @@
 ```
 yarn add @toba/test --dev
 ```
+
+Add `jest.config.js` to the project root containing
+```
+module.exports = require('@toba/test/jest');
+```
+in order to use the shared Jest configuration.
