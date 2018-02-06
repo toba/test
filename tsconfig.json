@@ -1,26 +1,3 @@
 {
-   "compilerOptions": {
-      "target": "es5",
-      "module": "commonjs",
-      "newLine": "LF",
-      "noImplicitAny": true,
-      "noImplicitThis": true,
-      // cannot be true because that blocks mocha, React and others
-      "noUnusedLocals": false,
-      "noUnusedParameters": false,
-      "outDir": "./dist",
-      "sourceMap": false,
-      "allowJs": false,
-      "removeComments": true,
-      "alwaysStrict": true,
-      "strictNullChecks": false,
-      "skipLibCheck": true,
-      "allowSyntheticDefaultImports": false,
-      "forceConsistentCasingInFileNames": true,
-      "baseUrl": ".",
-      "lib": ["dom", "es2015"],
-      "typeRoots": ["./node_modules/@types", "./src/types"]
-   },
-   "include": ["index.ts"],
-   "exclude": ["./src/types/", "./node_modules/"]
+   "extends": "./node_modules/@toba/lint/ts/config"
 }
