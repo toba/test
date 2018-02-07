@@ -17,5 +17,14 @@ module.exports = {
       "<rootDir>/node_modules/(?!@toba)"
    ],
    testRegex: "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"]
-}
+   moduleFileExtensions: [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+   ]
+};
+
+
