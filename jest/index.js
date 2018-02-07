@@ -4,7 +4,7 @@
  */
 module.exports = {
    transform: {
-      "^.+\\.txsx?$": "ts-jest"
+      "^.+\\.tsx?$": "ts-jest"
    },
    collectCoverage: true,
    collectCoverageFrom: [
