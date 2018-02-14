@@ -1,16 +1,13 @@
 {
    "name": "@toba/test",
    "description": "Toba Test",
-   "version": "1.0.4",
+   "version": "1.0.5",
    "private": false,
    "publishConfig": {
       "access": "public"
    },
    "main": "index.ts",
-   "files": [
-      "index.ts",
-      "jest/index.js"
-   ],
+   "files": ["index.ts", "jest/index.js"],
    "engines": {
       "node": ">=9.0.0"
    },
