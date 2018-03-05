@@ -8,7 +8,7 @@ module.exports = {
    },
    setupFiles: ['jest-localstorage-mock'],
    collectCoverage: true,
-   collectCoverageFrom: ['lib/*.ts'],
+   collectCoverageFrom: ['lib/**/*.ts', '!lib/**/*.d.ts', '!lib/**/types.ts'],
    coverageReporters: ['lcov'],
    transformIgnorePatterns: ['<rootDir>/node_modules/(?!@toba)'],
    testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$',
