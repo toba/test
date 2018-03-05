@@ -15,7 +15,7 @@
       "name": "Jason Abbott"
    },
    "scripts": {
-      "test": "jest"
+      "test": "jest --coverage"
    },
    "license": "MIT",
    "peerDependencies": {
