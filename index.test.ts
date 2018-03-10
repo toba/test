@@ -9,9 +9,10 @@ test('helpers are defined', () => {
 test('mocks fetch to read local file', () => {
    const fetch = mockFetch(url => `${__dirname}/README.md`);
    return fetch('url')
-      .then(file => {
-         expect(file).toBeDefined();
-         return file.text();
+      .then(res => {
+         expect(res).toBeDefined();
+         expect(res).toHaveProperty('status', 200);
+         return res.text();
       })
       .then(text => {
          expect(text).toBeDefined();

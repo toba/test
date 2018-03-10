@@ -6,9 +6,11 @@ export const lipsum =
 
 class MockResponse {
    plainText: string;
+   status: number;
 
-   constructor(body: string) {
+   constructor(body: string, status: number = 200) {
       this.plainText = body;
+      this.status = status;
    }
    text(): Promise<string> {
       return Promise.resolve(this.plainText);
