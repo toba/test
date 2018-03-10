@@ -1,9 +1,22 @@
-import { lipsum } from './index';
+import { lipsum, mockFetch } from './index';
 import * as JestConfig from './jest/';
 
 test('helpers are defined', () => {
    expect(lipsum).toBeDefined();
    expect(typeof lipsum).toBe('string');
+});
+
+test('mocks fetch to read local file', () => {
+   const fetch = mockFetch(url => `${__dirname}/README.md`);
+   return fetch('url')
+      .then(file => {
+         expect(file).toBeDefined();
+         return file.text();
+      })
+      .then(text => {
+         expect(text).toBeDefined();
+         expect(text.includes('# Usage')).toBe(true);
+      });
 });
 
 test('common Jest configuration', () => {
