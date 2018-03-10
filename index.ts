@@ -22,6 +22,9 @@ export function mockFetch(localPath: (url: string | Request) => string) {
    return (url: string | Request, init?: RequestInit): Promise<MockResponse> =>
       new Promise((resolve, reject) => {
          const fileName = localPath(url);
+
+         console.info(`Substituting "${fileName}" for "${url}"`);
+
          fs.readFile(fileName, (err, data) => {
             if (err === null) {
                resolve(new MockResponse(data.toString()));
