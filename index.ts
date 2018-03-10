@@ -1,6 +1,6 @@
 export { mockFetch } from './lib/fetch';
 export { readFile, readBigFile, loadStream } from './lib/file';
-export { expectWithin, expectAllProperties } from './lib/helpers';
+import './lib/helpers';
 
 /** http://www.lipsum.com/ */
 export const lipsum =
