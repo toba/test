@@ -1,5 +1,10 @@
-export { mockFetch } from './lib/fetch';
+export { mockFetch } from './lib/mock-fetch';
+export { MockResponse } from './lib/mock-response';
+export { MockRequest } from './lib/mock-request';
 export { readFile, readBigFile, loadStream } from './lib/file';
+
+import './lib/helpers';
+
 // import { toBeWithin, toHaveAllProperties } from './lib/helpers';
 
 // declare global {

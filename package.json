@@ -1,7 +1,7 @@
 {
    "name": "@toba/test",
    "description": "Toba Test",
-   "version": "1.5.3",
+   "version": "1.6.0",
    "private": false,
    "publishConfig": {
       "access": "public"
@@ -9,9 +9,11 @@
    "main": "index.ts",
    "files": [
       "index.ts",
-      "lib/fetch.ts",
       "lib/file.ts",
       "lib/helpers.ts",
+      "lib/mock-fetch.ts",
+      "lib/mock-response.ts",
+      "lib/mock-request.ts",
       "jest/index.js"
    ],
    "engines": {
@@ -32,6 +34,7 @@
       "typescript": "^2.7.1"
    },
    "dependencies": {
+      "@toba/tools": "^1.10.0",
       "@types/jest": "^22.1.1",
       "@types/node": "^9.4.7",
       "@types/node-fetch": "^1.6.7",
