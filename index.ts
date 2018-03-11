@@ -1,6 +1,15 @@
 export { mockFetch } from './lib/fetch';
 export { readFile, readBigFile, loadStream } from './lib/file';
-import './lib/helpers';
+// import { toBeWithin, toHaveAllProperties } from './lib/helpers';
+
+// declare global {
+//    namespace jest {
+//       interface Matchers {
+//          toBeWithin: typeof toBeWithin;
+//          toHaveAllProperties: typeof toHaveAllProperties;
+//       }
+//    }
+// }
 
 /** http://www.lipsum.com/ */
 export const lipsum =
