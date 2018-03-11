@@ -15,3 +15,8 @@ test('adds all properties expectation', () => {
    expect(thing).toHaveAllProperties('one', 'two', 'three');
    expect(thing).not.toHaveAllProperties('four', 'five');
 });
+
+test('adds lat/lng point expectation', () => {
+   expect([120, -35]).toBeLatLng();
+   expect([200, 100]).not.toBeLatLng();
+});

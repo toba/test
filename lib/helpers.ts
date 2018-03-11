@@ -1,39 +1,56 @@
-/**
- * Extend default Jest matcher list.
- * https://stackoverflow.com/questions/43667085/extending-third-party-module-that-is-globally-exposed
- */
-declare namespace jest {
-   interface Matchers {
-      toBeWithin: typeof toBeWithin;
-      toHaveAllProperties: typeof toHaveAllProperties;
-   }
-}
+import { is } from '@toba/tools';
 
-interface ExpectResponse {
+export interface ExpectResponse {
    message: () => string;
    pass: boolean;
 }
 
-export function toBeWithin(
-   received: number,
-   min: number,
-   max: number
+function toBeLatLng(
+   this: jest.MatcherUtils,
+   received: number[]
 ): ExpectResponse {
-   const pass = received >= min && received <= max;
+   const pass =
+      is.array<number>(received) &&
+      received[0] <= 180 &&
+      received[0] >= -180 &&
+      received[1] <= 90 &&
+      received[1] >= -90;
+   const text =
+      'to be a two-element array with a number between -180/180 and second number between -90/90';
+
    return pass
       ? {
-           message: () =>
-              `expected ${received} not to be within ${min} and ${max}`,
+           message: () => `expected ${received} not ${text}`,
            pass
         }
       : {
-           message: () => `expected ${received} to be within ${min} and ${max}`,
+           message: () => `expected ${received} ${text}`,
            pass
         };
 }
 
-export function toHaveAllProperties(
-   received: Object,
+function toBeWithin<T extends number>(
+   this: jest.MatcherUtils,
+   received: T,
+   min: number,
+   max: number
+): ExpectResponse {
+   const pass = received >= min && received <= max;
+   const text = `to be within ${min} and ${max}`;
+   return pass
+      ? {
+           message: () => `expected ${received} not ${text}`,
+           pass
+        }
+      : {
+           message: () => `expected ${received} ${text}`,
+           pass
+        };
+}
+
+function toHaveAllProperties<T extends Object>(
+   this: jest.MatcherUtils,
+   received: T,
    ...keys: string[]
 ): ExpectResponse {
    const missing = keys.filter(k => !received.hasOwnProperty(k));
@@ -57,5 +74,6 @@ export function toHaveAllProperties(
  */
 expect.extend({
    toBeWithin,
+   toBeLatLng,
    toHaveAllProperties
 });
