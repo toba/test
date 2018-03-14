@@ -1,4 +1,4 @@
-import { lipsum } from './index';
+import { lipsum, sleep } from './index';
 import * as JestConfig from './jest/';
 
 test('helpers are defined', () => {
@@ -12,4 +12,9 @@ test('common Jest configuration', () => {
    // intead use --coverage when running
    expect(JestConfig).toHaveProperty('collectCoverage', false);
    expect(JestConfig).toHaveProperty('coverageReporters');
+});
+
+test('sleep', async () => {
+   await sleep(10);
+   expect(2).toBe(2);
 });
