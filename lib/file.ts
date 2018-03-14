@@ -3,6 +3,7 @@ import { EOL as nl } from 'os';
 import * as path from 'path';
 import * as Stream from 'stream';
 import * as readline from 'readline';
+import { Encoding } from '@toba/tools';
 
 const localPath = (name: string) => path.normalize(__dirname + '/' + name);
 
@@ -29,6 +30,11 @@ export const readFile = (name: string): Promise<Buffer> =>
          }
       });
    });
+
+export async function readFileText(name: string) {
+   const buffer = await readFile(name);
+   return buffer.toString(Encoding.UTF8);
+}
 
 export const loadStream = (name: string) =>
    fs.createReadStream(localPath(name));

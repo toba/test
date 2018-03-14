@@ -1,14 +1,20 @@
-import { readFile, readBigFile } from '../index';
+import { readFile, readBigFile, readFileText } from '../index';
 
-test('reads file bytes', () =>
-   readFile('helpers.ts').then(bytes => {
-      expect(bytes).toBeDefined();
-      expect(bytes).toBeInstanceOf(Buffer);
-   }));
+test('reads file bytes', async () => {
+   const bytes = await readFile('helpers.ts');
+   expect(bytes).toBeDefined();
+   expect(bytes).toBeInstanceOf(Buffer);
+});
 
-test('reads large files', () =>
-   readBigFile('helpers.ts').then(content => {
-      expect(content).toBeDefined();
-      expect(typeof content).toBe('string');
-      expect(content.includes('ExpectResponse')).toBe(true);
-   }));
+test('reads file text', async () => {
+   const text = await readFileText('helpers.ts');
+   expect(typeof text).toBe('string');
+   expect(text.includes('ExpectResponse')).toBe(true);
+});
+
+test('reads large files', async () => {
+   const text = await readBigFile('helpers.ts');
+   expect(text).toBeDefined();
+   expect(typeof text).toBe('string');
+   expect(text.includes('ExpectResponse')).toBe(true);
+});

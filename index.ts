@@ -1,7 +1,7 @@
 export { mockFetch } from './lib/mock-fetch';
 export { MockResponse } from './lib/mock-response';
 export { MockRequest } from './lib/mock-request';
-export { readFile, readBigFile, loadStream } from './lib/file';
+export { readFile, readBigFile, loadStream, readFileText } from './lib/file';
 
 import './lib/helpers';
 
