@@ -6,7 +6,6 @@ test('helpers are defined', () => {
    expect(typeof lipsum).toBe('string');
 });
 
-
 test('common Jest configuration', () => {
    expect(JestConfig).toBeDefined();
    // enabling coverage breaks VSCode debugging
