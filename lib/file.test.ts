@@ -1,4 +1,12 @@
+import * as path from 'path';
 import { readFile, readBigFile, readFileText } from '../index';
+import { normalizePath } from './file';
+
+test('normalizes file path', () => {
+   expect(normalizePath('file/name')).toBe('file/name');
+   expect(normalizePath('file\\name')).toBe('file\\name');
+   expect(normalizePath('name')).toBe(path.join(__dirname, 'name'));
+});
 
 test('reads file bytes', async () => {
    const bytes = await readFile('helpers.ts');

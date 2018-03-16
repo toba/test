@@ -5,14 +5,23 @@ import * as Stream from 'stream';
 import * as readline from 'readline';
 import { Encoding } from '@toba/tools';
 
-const localPath = (name: string) => path.normalize(__dirname + '/' + name);
+/**
+ * Prepend local path to file name.
+ */
+export const localPath = (name: string) => path.join(__dirname, name);
+
+/**
+ * If path has no slash then prepend local path.
+ */
+export const normalizePath = (filePath: string) =>
+   /[\\\/]/.test(filePath) ? filePath : localPath(filePath);
 
 /**
  * Technique that supports large text files.
  */
-export const readBigFile = (name: string) =>
+export const readBigFile = (filePath: string) =>
    new Promise<string>(resolve => {
-      const input = fs.createReadStream(localPath(name));
+      const input = fs.createReadStream(normalizePath(filePath));
       const output: NodeJS.WritableStream = new Stream.Writable();
       const rl = readline.createInterface(input, output);
       let file = '';
@@ -20,9 +29,9 @@ export const readBigFile = (name: string) =>
       rl.on('close', () => resolve(file));
    });
 
-export const readFile = (name: string): Promise<Buffer> =>
+export const readFile = (filePath: string): Promise<Buffer> =>
    new Promise((resolve, reject) => {
-      fs.readFile(localPath(name), (err, data) => {
+      fs.readFile(normalizePath(filePath), (err, data) => {
          if (err === null) {
             resolve(data);
          } else {
@@ -31,10 +40,10 @@ export const readFile = (name: string): Promise<Buffer> =>
       });
    });
 
-export async function readFileText(name: string) {
-   const buffer = await readFile(name);
+export async function readFileText(filePath: string) {
+   const buffer = await readFile(filePath);
    return buffer.toString(Encoding.UTF8);
 }
 
-export const loadStream = (name: string) =>
-   fs.createReadStream(localPath(name));
+export const loadStream = (filePath: string) =>
+   fs.createReadStream(normalizePath(filePath));
