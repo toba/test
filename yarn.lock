@@ -351,7 +351,7 @@ babel-plugin-syntax-object-rest-spread@^6.13.0:
   version "6.13.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-syntax-object-rest-spread/-/babel-plugin-syntax-object-rest-spread-6.13.0.tgz#fd6536f2bce13836ffa3a5458c4903a597bb3bf5"
 
-babel-plugin-transform-es2015-modules-commonjs@^6.26.0:
+babel-plugin-transform-es2015-modules-commonjs@^6.24.1:
   version "6.26.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-transform-es2015-modules-commonjs/-/babel-plugin-transform-es2015-modules-commonjs-6.26.0.tgz#0d8394029b7dc6abe1a97ef181e00758dd2e5d8a"
   dependencies:
@@ -617,14 +617,6 @@ cliui@^2.1.0:
     center-align "^0.1.1"
     right-align "^0.1.1"
     wordwrap "0.0.2"
-
-cliui@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/cliui/-/cliui-4.0.0.tgz#743d4650e05f36d1ed2575b59638d87322bfbbcc"
-  dependencies:
-    string-width "^2.1.1"
-    strip-ansi "^4.0.0"
-    wrap-ansi "^2.0.0"
 
 cliui@^4.0.0:
   version "4.0.0"
@@ -1891,7 +1883,11 @@ jest-mock@^22.2.0:
   version "22.2.0"
   resolved "https://registry.yarnpkg.com/jest-mock/-/jest-mock-22.2.0.tgz#444b3f9488a7473adae09bc8a77294afded397a7"
 
-jest-resolve-dependencies@^22.4.3:
+jest-regex-util@^22.1.0, jest-regex-util@^22.4.3:
+  version "22.4.3"
+  resolved "https://registry.yarnpkg.com/jest-regex-util/-/jest-regex-util-22.4.3.tgz#a826eb191cdf22502198c5401a1fc04de9cef5af"
+
+jest-resolve-dependencies@^22.1.0:
   version "22.4.3"
   resolved "https://registry.yarnpkg.com/jest-resolve-dependencies/-/jest-resolve-dependencies-22.4.3.tgz#e2256a5a846732dc3969cb72f3c9ad7725a8195e"
   dependencies:
@@ -3064,10 +3060,6 @@ sax@^1.2.4:
   version "5.5.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.5.0.tgz#dc4bbc7a6ca9d916dee5d43516f0092b58f7b8ab"
 
-semver@^5.4.1:
-  version "5.5.0"
-  resolved "https://registry.yarnpkg.com/semver/-/semver-5.5.0.tgz#dc4bbc7a6ca9d916dee5d43516f0092b58f7b8ab"
-
 set-blocking@^2.0.0, set-blocking@~2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/set-blocking/-/set-blocking-2.0.0.tgz#045f9782d011ae9a6803ddd382b24392b3d890f7"
@@ -3477,7 +3469,7 @@ ts-jest@^22.4.0:
   version "22.4.1"
   resolved "https://registry.yarnpkg.com/ts-jest/-/ts-jest-22.4.1.tgz#69defb2042d689cff9b4244365ef638ecd35f706"
   dependencies:
-    babel-core "^6.26.0"
+    babel-core "^6.24.1"
     babel-plugin-istanbul "^4.1.4"
     babel-plugin-transform-es2015-modules-commonjs "^6.24.1"
     babel-preset-jest "^22.4.0"
@@ -3823,23 +3815,6 @@ yargs@^10.0.3:
     which-module "^2.0.0"
     y18n "^3.2.1"
     yargs-parser "^8.1.0"
-
-yargs@^11.0.0:
-  version "11.0.0"
-  resolved "https://registry.yarnpkg.com/yargs/-/yargs-11.0.0.tgz#c052931006c5eee74610e5fc0354bedfd08a201b"
-  dependencies:
-    cliui "^4.0.0"
-    decamelize "^1.1.1"
-    find-up "^2.1.0"
-    get-caller-file "^1.0.1"
-    os-locale "^2.0.0"
-    require-directory "^2.1.1"
-    require-main-filename "^1.0.1"
-    set-blocking "^2.0.0"
-    string-width "^2.0.0"
-    which-module "^2.0.0"
-    y18n "^3.2.1"
-    yargs-parser "^9.0.2"
 
 yargs@^11.0.0:
   version "11.0.0"
