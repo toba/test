@@ -11,7 +11,7 @@ export class MockResponse extends ServerResponse {
    /**
     * Method to call when response is complete. Can be assigned as test
     * middleware next() method so that response.end() and middelware next()
-    * are both captured
+    * are both captured. It defaults to an empty Jest mock.
     */
    onEnd = jest.fn();
 
@@ -121,7 +121,10 @@ export class MockResponse extends ServerResponse {
    end() {
       if (!this.ended) {
          this.ended = true;
-         this.onEnd();
+         debugger;
+         if (is.callable(this.onEnd)) {
+            this.onEnd();
+         }
       }
       return this;
    }
@@ -141,7 +144,6 @@ export class MockResponse extends ServerResponse {
          status: null,
          url: null
       };
-      this.onEnd.mockClear();
 
       return this;
    }

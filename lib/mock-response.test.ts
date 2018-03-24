@@ -48,12 +48,13 @@ test('simulates template rendering', () => {
 });
 
 test('tracks whether response is ended', () => {
+   res.onEnd = jest.fn();
    res.end();
    expect(res.onEnd).toHaveBeenCalledTimes(1);
 });
 
 test('can be reset and re-used', () => {
    res.reset();
-   expect(res.onEnd).toHaveBeenCalledTimes(0);
+   expect(res.ended).toBe(false);
    expect(res.httpStatus).toBe(HttpStatus.OK);
 });

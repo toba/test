@@ -44,8 +44,8 @@
     tslint-consistent-codestyle "^1.11.0"
 
 "@toba/tools@^1.12.0":
-  version "1.13.0"
-  resolved "https://registry.yarnpkg.com/@toba/tools/-/tools-1.13.0.tgz#9a13488db96c5e699af5ac2ab877ca124e658ad7"
+  version "1.13.1"
+  resolved "https://registry.yarnpkg.com/@toba/tools/-/tools-1.13.1.tgz#c24dcd0e65ff38061569717c725657af3863281b"
   dependencies:
     zlib "^1.0.5"
 

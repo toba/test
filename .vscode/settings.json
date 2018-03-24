@@ -1,8 +1,6 @@
 {
    "spellright.language": "en",
-   "spellright.documentTypes": [
-      "markdown",
-      "latex"
-   ],
-   "eslint.enable": false
+   "spellright.documentTypes": ["markdown", "latex"],
+   "eslint.enable": false,
+   "jest.enableCodeLens": true
 }
