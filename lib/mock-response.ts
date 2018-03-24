@@ -1,14 +1,19 @@
+import { HttpStatus, MimeType, Encoding, Header, is } from '@toba/tools';
 import * as util from 'util';
-import { HttpStatus, MimeType, Encoding, is } from '@toba/tools';
+import { ServerResponse, IncomingMessage } from 'http';
+import { Server } from 'net';
 
-export class MockResponse {
+/**
+ * Mock Node HTTP response with additional methods to capture end and redirect.
+ */
+export class MockResponse extends ServerResponse {
    httpStatus: HttpStatus;
    /**
     * Method to call when response is complete. Can be assigned as test
     * middleware next() method so that response.end() and middelware next()
     * are both captured
     */
-   onEnd: () => void;
+   onEnd = jest.fn();
 
    /** Whether response should be ended after render is called */
    endOnRender: boolean;
@@ -30,17 +35,14 @@ export class MockResponse {
       url: string;
    };
 
-   constructor() {
+   constructor(req: IncomingMessage) {
+      super(req);
       this.reset();
    }
 
    status(value: HttpStatus): MockResponse {
       this.httpStatus = value;
       return this;
-   }
-
-   notFound(): MockResponse {
-      return this.status(HttpStatus.NotFound);
    }
 
    setHeader(key: string, value: string): MockResponse {
@@ -66,16 +68,17 @@ export class MockResponse {
    }
 
    /**
-    * Method added by Express
+    * Express method.
     */
    json(o: any) {
       this.httpStatus = HttpStatus.OK;
       this.rendered.json = o;
-      return this.setHeader('Content-Type', MimeType.JSON).end();
+      return this.setHeader(Header.Content.Type, MimeType.JSON).end();
    }
 
    /**
-    * Serialize render options rather than actually rendering a view
+    * Express method. Serialize render options rather than actually rendering a
+    * view.
     */
    render(
       template: string,
@@ -97,16 +100,20 @@ export class MockResponse {
    /**
     * https://nodejs.org/api/stream.html#stream_class_stream_writable
     */
-   write(
-      chunk: string | Buffer,
-      encoding = Encoding.UTF8,
-      callback?: () => void
-   ) {
+   write(chunk: any, encodingOrCb?: string | Function, cb?: Function) {
+      let encoding: string = Encoding.UTF8;
+
+      if (cb !== undefined) {
+         encoding = encodingOrCb as string;
+      } else {
+         cb = encodingOrCb as Function;
+      }
+
       const text = Buffer.isBuffer(chunk) ? chunk.toString(encoding) : chunk;
       this.content = this.content === null ? text : this.content + text;
 
-      if (is.callable(callback)) {
-         callback();
+      if (is.callable(cb)) {
+         cb();
       }
       return true;
    }
@@ -114,16 +121,13 @@ export class MockResponse {
    end() {
       if (!this.ended) {
          this.ended = true;
-         if (is.callable(this.onEnd)) {
-            this.onEnd();
-         }
+         this.onEnd();
       }
       return this;
    }
 
    reset(): MockResponse {
       this.httpStatus = HttpStatus.OK;
-      this.onEnd = null;
       this.ended = false;
       this.headers = {};
       this.content = null;
@@ -137,6 +141,8 @@ export class MockResponse {
          status: null,
          url: null
       };
+      this.onEnd.mockClear();
+
       return this;
    }
 }

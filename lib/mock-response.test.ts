@@ -1,7 +1,7 @@
-import { MockResponse } from '../index';
-import { HttpStatus } from '@toba/tools';
+import { HttpStatus, Header } from '@toba/tools';
+import { MockResponse, MockRequest } from '../index';
 
-const res = new MockResponse();
+const res = new MockResponse(new MockRequest());
 
 beforeEach(() => res.reset());
 
@@ -11,11 +11,11 @@ test('allows setting and reading the HTTP status', () => {
 });
 
 test('accepts headers', () => {
-   res.setHeader('Cache-Control', 'no-cache');
-   res.setHeader('expires', 'Tue, 01 Jan 1980 1:00:00 GMT');
-   res.setHeader('pragma', 'no-cache');
+   res.setHeader(Header.CacheControl, 'no-cache');
+   res.setHeader(Header.Expires, 'Tue, 01 Jan 1980 1:00:00 GMT');
+   res.setHeader(Header.PRAGMA, 'no-cache');
 
-   expect(res.headers).toHaveProperty('pragma', 'no-cache');
+   expect(res.headers).toHaveProperty(Header.PRAGMA, 'no-cache');
 
    res.set({
       'Fake-Header1': 'header-value1',
@@ -38,29 +38,22 @@ test('captures redirects', () => {
    expect(res.redirected.url).toBe('url');
 });
 
-test('simulates template rendering', done => {
-   res.render('template', { key1: 'value1', key2: 'value2' }, (err, text) => {
-      expect(err).toBeNull();
-      expect(res.rendered).toHaveProperty('template', 'template');
-      expect(res.rendered).toHaveProperty('options');
-      expect(res.rendered.options).toHaveProperty('key1', 'value1');
-      expect(res.rendered.options).toHaveProperty('key2', 'value2');
-      done();
-   });
-});
+test('simulates template rendering', () => {
+   res.render('template', { key1: 'value1', key2: 'value2' });
 
-test('provides a 404 convenience method', () => {
-   res.notFound();
-   expect(res.httpStatus).toBe(HttpStatus.NotFound);
+   expect(res.rendered).toHaveProperty('template', 'template');
+   expect(res.rendered).toHaveProperty('options');
+   expect(res.rendered.options).toHaveProperty('key1', 'value1');
+   expect(res.rendered.options).toHaveProperty('key2', 'value2');
 });
 
 test('tracks whether response is ended', () => {
    res.end();
-   expect(res.ended).toBe(true);
+   expect(res.onEnd).toHaveBeenCalledTimes(1);
 });
 
 test('can be reset and re-used', () => {
    res.reset();
-   expect(res.ended).toBe(false);
+   expect(res.onEnd).toHaveBeenCalledTimes(0);
    expect(res.httpStatus).toBe(HttpStatus.OK);
 });

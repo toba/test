@@ -1,6 +1,14 @@
 import { MockRequest } from '../index';
+import { MockSocket } from './mock-request';
 
 const req = new MockRequest();
+
+test('mocks remote address', () => {
+   const socket = new MockSocket();
+   expect(socket.remoteAddress).toBeUndefined();
+   socket.mockRemoteAddress = 'whatever';
+   expect(socket.remoteAddress).toBe('whatever');
+});
 
 test('allows setting and reading the referer', () => {
    req.referer = 'http://2323423423.copyrightclaims.org';

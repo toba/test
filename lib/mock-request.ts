@@ -1,19 +1,34 @@
-export class MockRequest {
+import { ServerResponse, IncomingMessage } from 'http';
+import { Socket } from 'net';
+
+export class MockSocket extends Socket {
+   /**
+    * https://nodejs.org/api/net.html#net_socket_remoteaddress
+    */
+   mockRemoteAddress: string;
+
+   get remoteAddress() {
+      return this.mockRemoteAddress;
+   }
+
+   reset() {
+      this.mockRemoteAddress = '';
+   }
+}
+
+export class MockRequest extends IncomingMessage {
    referer: string;
    accepts: string;
    /** Querystring parameters */
    params: { [key: string]: string };
    headers: { [key: string]: string };
-   clientIP: string;
-
-   connection: {
-      remoteAddress: string;
-   };
+   connection: MockSocket;
 
    // added by Express body parser
    body: { selected: string[] };
 
    constructor() {
+      super(new MockSocket());
       this.reset();
    }
 
@@ -36,7 +51,7 @@ export class MockRequest {
       this.referer = null;
       this.params = {};
       this.headers = {};
-      this.connection = { remoteAddress: '' };
+      this.connection.reset();
       this.body = { selected: [] };
       return this;
    }
