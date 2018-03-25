@@ -1,7 +1,6 @@
 import { HttpStatus, MimeType, Encoding, Header, is, merge } from '@toba/tools';
 import * as util from 'util';
 import { ServerResponse, IncomingMessage } from 'http';
-import { Server } from 'net';
 
 /**
  * Mock Node HTTP response with additional methods to capture end and redirect.
@@ -147,7 +146,6 @@ export class MockResponse extends ServerResponse {
    end() {
       if (!this.ended) {
          this.ended = true;
-         debugger;
          if (is.callable(this.onEnd)) {
             this.onEnd();
          }

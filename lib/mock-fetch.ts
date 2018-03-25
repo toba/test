@@ -20,10 +20,10 @@ class MockResponse {
  * Mock `fetch` to return local files instead of remote resources.
  */
 export function mockFetch(localPath: (url: string | Request) => string) {
-   return (url: string | Request, init?: RequestInit): Promise<MockResponse> =>
+   return (url: string | Request, _init?: RequestInit): Promise<MockResponse> =>
       new Promise((resolve, reject) => {
          const fileName = localPath(url);
-
+         /* tslint:disable-next-line:no-console */
          console.debug(`Substituting "${fileName}" for "${url}"`);
 
          fs.readFile(fileName, (err, data) => {

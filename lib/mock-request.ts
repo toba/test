@@ -1,4 +1,4 @@
-import { ServerResponse, IncomingMessage } from 'http';
+import { IncomingMessage } from 'http';
 import { Socket } from 'net';
 
 export class MockSocket extends Socket {
