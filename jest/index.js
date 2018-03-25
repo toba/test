@@ -1,6 +1,6 @@
 /**
  * Default Jest configuration.
- * @type {jest.GlobalConfig}
+ * @type {jest.ProjectConfig}
  */
 module.exports = {
    transform: {

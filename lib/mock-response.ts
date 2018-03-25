@@ -49,8 +49,6 @@ export class MockResponse extends ServerResponse {
       return this;
    }
 
-   //status(code: number): Response;
-
    setHeader(key: string, value: string): MockResponse {
       this.headers[key] = value;
       return this;
@@ -149,6 +147,7 @@ export class MockResponse extends ServerResponse {
    end() {
       if (!this.ended) {
          this.ended = true;
+         debugger;
          if (is.callable(this.onEnd)) {
             this.onEnd();
          }

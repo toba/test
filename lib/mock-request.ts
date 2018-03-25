@@ -16,10 +16,6 @@ export class MockSocket extends Socket {
    }
 }
 
-/**
- * Mock functionality of basic Node request and include field accessors to
- * satisfy Express.
- */
 export class MockRequest extends IncomingMessage {
    referer: string;
    /** Querystring parameters */

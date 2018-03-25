@@ -1,5 +1,8 @@
 import * as fs from 'fs';
 
+/**
+ * Mock Fetch response.
+ */
 class MockResponse {
    plainText: string;
    status: number;

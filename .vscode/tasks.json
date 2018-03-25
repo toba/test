@@ -2,36 +2,11 @@
    "version": "2.0.0",
    "tasks": [
       {
-         "label": "Build",
-         "command": "tsc -p tsconfig.bin.json",
-         "type": "shell",
-         "group": "build",
-         "problemMatcher": [
-            "$tsc"
-         ]
-      },
-      {
          "label": "Test",
-         "options": {
-            "env": {
-               "TS_NODE_COMPILER_OPTIONS": "{\"module\": \"commonjs\", \"target\": \"es5\"}"
-            }
-         },
-         "command": "node_modules/.bin/mocha",
-         "args": [
-            "--require",
-            "ts-node/register",
-            "--require",
-            "ignore-styles",
-            // "--require",
-            // "ts-node/register",
-            "./**/*.test.ts*"
-         ],
+         "command": "./node_modules/.bin/jest",
          "type": "shell",
          "group": "test",
-         "problemMatcher": [
-            "$tsc"
-         ]
+         "problemMatcher": []
       }
    ]
 }
