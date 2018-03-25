@@ -12,7 +12,7 @@ export class MockResponse extends ServerResponse {
     * middleware next() method so that response.end() and middelware next()
     * are both captured. It defaults to an empty Jest mock.
     */
-   onEnd = jest.fn();
+   onEnd: () => void;
 
    /** Whether response should be ended after render is called */
    endOnRender: boolean;

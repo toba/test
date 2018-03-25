@@ -1,7 +1,7 @@
 {
    "name": "@toba/test",
    "description": "Toba Test",
-   "version": "1.9.3",
+   "version": "1.9.4",
    "private": false,
    "publishConfig": {
       "access": "public"
