@@ -63,7 +63,7 @@ export class MockResponse extends ServerResponse {
       if (typeof keyOrHash == is.Type.String) {
          this.headers[keyOrHash as string] = value;
       } else {
-         merge(this.headers, keyOrHash);
+         this.headers = merge(this.headers, keyOrHash);
       }
    }
 
