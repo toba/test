@@ -1,3 +1,4 @@
+import { log } from '@toba/logger';
 export { mockFetch } from './lib/mock-fetch';
 export { MockResponse } from './lib/mock-response';
 export { MockRequest } from './lib/mock-request';
@@ -6,6 +7,9 @@ export { readFile, readBigFile, loadStream, readFileText } from './lib/file';
 import './lib/helpers';
 
 import { ExpectResponse } from './lib/helpers';
+
+// disable color output for tests (messes up tips and console output)
+log.update({ color: false });
 
 /** http://www.lipsum.com/ */
 export const lipsum =

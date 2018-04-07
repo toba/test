@@ -1,7 +1,7 @@
 {
    "name": "@toba/test",
    "description": "Toba Test",
-   "version": "1.9.4",
+   "version": "1.10.0",
    "private": false,
    "publishConfig": {
       "access": "public"
@@ -34,9 +34,10 @@
       "typescript": "^2.7.1"
    },
    "dependencies": {
-      "@toba/tools": "^1.12.0",
+      "@toba/logger": "^1.0.3",
+      "@toba/tools": "^1.18.0",
       "@types/jest": "^22.2.0",
-      "@types/node": "^9.4.7",
+      "@types/node": "^9.6.0",
       "@types/node-fetch": "^1.6.7",
       "jest": "^22.4.0",
       "jest-localstorage-mock": "^2.2.0",

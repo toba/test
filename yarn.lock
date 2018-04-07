@@ -43,9 +43,18 @@
     tslint-config-prettier "^1.10.0"
     tslint-consistent-codestyle "^1.12.0"
 
-"@toba/tools@^1.12.0":
-  version "1.13.2"
-  resolved "https://registry.yarnpkg.com/@toba/tools/-/tools-1.13.2.tgz#0e3fc3265125ea4cdb3f9b5480e2fc1bd9854fa8"
+"@toba/logger@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@toba/logger/-/logger-1.0.3.tgz#d9d0b80048cb53b6aef42a66fe1074269dfa1ccd"
+  dependencies:
+    "@toba/tools" "^1.8.0"
+    chalk "^2.3.0"
+    flat "^4.0.0"
+    logfmt "^1.2.0"
+
+"@toba/tools@^1.18.0", "@toba/tools@^1.8.0":
+  version "1.18.0"
+  resolved "https://registry.yarnpkg.com/@toba/tools/-/tools-1.18.0.tgz#9f729fd69e162149e73df4172f65ed7b1ade4f87"
   dependencies:
     zlib "^1.0.5"
 
@@ -59,9 +68,13 @@
   dependencies:
     "@types/node" "*"
 
-"@types/node@*", "@types/node@^9.4.7":
+"@types/node@*":
   version "9.6.0"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-9.6.0.tgz#d3480ee666df9784b1001a1872a2f6ccefb6c2d7"
+
+"@types/node@^9.6.0":
+  version "9.6.2"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-9.6.2.tgz#e49ac1adb458835e95ca6487bc20f916b37aff23"
 
 abab@^1.0.4:
   version "1.0.4"
@@ -1283,6 +1296,12 @@ flat-cache@^1.2.1:
     graceful-fs "^4.1.2"
     write "^0.2.1"
 
+flat@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/flat/-/flat-4.0.0.tgz#3abc7f3b588e64ce77dc42fd59aa35806622fea8"
+  dependencies:
+    is-buffer "~1.1.5"
+
 for-in@^1.0.1, for-in@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/for-in/-/for-in-1.0.2.tgz#81068d295a8142ec0ac726c6e2200c30fb6d5e80"
@@ -1722,7 +1741,7 @@ is-binary-path@^1.0.0:
   dependencies:
     binary-extensions "^1.0.0"
 
-is-buffer@^1.1.4, is-buffer@^1.1.5:
+is-buffer@^1.1.4, is-buffer@^1.1.5, is-buffer@~1.1.5:
   version "1.1.6"
   resolved "https://registry.yarnpkg.com/is-buffer/-/is-buffer-1.1.6.tgz#efaa2ea9daa0d7ab2ea13a97b2b8ad51fefbe8be"
 
@@ -2479,11 +2498,23 @@ lodash@^4.13.1, lodash@^4.14.0, lodash@^4.17.4:
   version "4.17.5"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.5.tgz#99a92d65c0272debe8c96b6057bc8fbfa3bed511"
 
+lodash@~2.4.1:
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-2.4.2.tgz#fadd834b9683073da179b3eae6d9c0d15053f73e"
+
 log-symbols@^2.0.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/log-symbols/-/log-symbols-2.2.0.tgz#5740e1c5d6f0dfda4ad9323b5332107ef6b4c40a"
   dependencies:
     chalk "^2.0.1"
+
+logfmt@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/logfmt/-/logfmt-1.2.0.tgz#1ccc067c1cfe65f3ecf5856c09d2654f69203572"
+  dependencies:
+    lodash "~2.4.1"
+    split "0.2.x"
+    through "2.3.x"
 
 longest-streak@^2.0.1:
   version "2.0.2"
@@ -3653,6 +3684,12 @@ split-string@^3.0.1, split-string@^3.0.2:
   dependencies:
     extend-shallow "^3.0.0"
 
+split@0.2.x:
+  version "0.2.10"
+  resolved "https://registry.yarnpkg.com/split/-/split-0.2.10.tgz#67097c601d697ce1368f418f06cd201cf0521a57"
+  dependencies:
+    through "2"
+
 sprintf-js@~1.0.2:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
@@ -3915,6 +3952,10 @@ test-exclude@^4.1.1:
 throat@^4.0.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/throat/-/throat-4.1.0.tgz#89037cbc92c56ab18926e6ba4cbb200e15672a6a"
+
+through@2, through@2.3.x:
+  version "2.3.8"
+  resolved "https://registry.yarnpkg.com/through/-/through-2.3.8.tgz#0dd4c9ffaabc357960b1b724115d7e0e86a2e1f5"
 
 tmpl@1.0.x:
   version "1.0.4"
