@@ -22,6 +22,12 @@ test('adds set equality expectation', () => {
    expect(s).not.toHaveValues('one', 'two', 'four');
 });
 
+test('adds map equality expectation', () => {
+   const s = new Map<number, string>([[1, 'one'], [2, 'two'], [3, 'three']]);
+   expect(s).toHaveValues('one', 'two', 'three');
+   expect(s).not.toHaveValues('one', 'two', 'four');
+});
+
 test('adds lat/lng point expectation', () => {
    expect([120, -35]).toBeLatLng();
    expect([200, 100]).not.toBeLatLng();

@@ -69,7 +69,7 @@ function toHaveAllProperties<T extends Object>(
         };
 }
 
-function toHaveValues<U, T extends Set<U>>(
+function toHaveValues<U, T extends Set<U> | Map<any, U>>(
    this: jest.MatcherUtils,
    received: T,
    ...values: U[]
@@ -80,11 +80,12 @@ function toHaveValues<U, T extends Set<U>>(
    return pass
       ? {
            message: () =>
-              `expected Set to not have all values ${values.join(', ')}`,
+              `expected Set or Map to not have all values ${values.join(', ')}`,
            pass
         }
       : {
-           message: () => `expected Set to have values ${values.join(', ')}`,
+           message: () =>
+              `expected Set or Map to have values ${values.join(', ')}`,
            pass
         };
 }
