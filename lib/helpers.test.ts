@@ -28,6 +28,12 @@ test('adds map equality expectation', () => {
    expect(s).not.toHaveValues('one', 'two', 'four');
 });
 
+test('adds map key expectation', () => {
+   const s = new Map<number, string>([[1, 'one'], [2, 'two'], [3, 'three']]);
+   expect(s).toHaveKeys(1, 2, 3);
+   expect(s).not.toHaveKeys(1, 2, 4);
+});
+
 test('adds lat/lng point expectation', () => {
    expect([120, -35]).toBeLatLng();
    expect([200, 100]).not.toBeLatLng();

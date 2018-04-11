@@ -26,6 +26,7 @@ declare global {
          toHaveAllProperties: (...keys: string[]) => ExpectResponse;
          toBeLatLng: () => ExpectResponse;
          toHaveValues: <T>(...values: T[]) => ExpectResponse;
+         toHaveKeys: <T>(...keys: T[]) => ExpectResponse;
       }
    }
 }

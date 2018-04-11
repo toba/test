@@ -90,12 +90,33 @@ function toHaveValues<U, T extends Set<U> | Map<any, U>>(
         };
 }
 
+function toHaveKeys<U, T extends Map<U, any>>(
+   this: jest.MatcherUtils,
+   received: T,
+   ...keys: U[]
+): ExpectResponse {
+   const setList = Array.from(received.keys());
+   const pass = isEqualList(setList, keys);
+
+   return pass
+      ? {
+           message: () =>
+              `expected Map to not have all keys ${keys.join(', ')}`,
+           pass
+        }
+      : {
+           message: () => `expected Map to have keys ${keys.join(', ')}`,
+           pass
+        };
+}
+
 /**
  * https://facebook.github.io/jest/docs/en/expect.html#expectextendmatchers
  */
 expect.extend({
    toBeWithin,
    toBeLatLng,
+   toHaveKeys,
    toHaveValues,
    toHaveAllProperties
 });
