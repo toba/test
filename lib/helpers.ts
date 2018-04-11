@@ -1,4 +1,4 @@
-import { is } from '@toba/tools';
+import { is, isEqualList } from '@toba/tools';
 
 export interface ExpectResponse {
    message: () => string;
@@ -69,11 +69,32 @@ function toHaveAllProperties<T extends Object>(
         };
 }
 
+function toHaveValues<U, T extends Set<U>>(
+   this: jest.MatcherUtils,
+   received: T,
+   ...values: U[]
+): ExpectResponse {
+   const setList = Array.from(received.values());
+   const pass = isEqualList(setList, values);
+
+   return pass
+      ? {
+           message: () =>
+              `expected Set to not have all values ${values.join(', ')}`,
+           pass
+        }
+      : {
+           message: () => `expected Set to have values ${values.join(', ')}`,
+           pass
+        };
+}
+
 /**
  * https://facebook.github.io/jest/docs/en/expect.html#expectextendmatchers
  */
 expect.extend({
    toBeWithin,
    toBeLatLng,
+   toHaveValues,
    toHaveAllProperties
 });

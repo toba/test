@@ -21,6 +21,7 @@ declare global {
          toBeWithin: (min: number, max: number) => ExpectResponse;
          toHaveAllProperties: (...keys: string[]) => ExpectResponse;
          toBeLatLng: () => ExpectResponse;
+         toHaveValues: <T>(...values: T[]) => ExpectResponse;
       }
    }
 }

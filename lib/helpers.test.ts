@@ -16,6 +16,12 @@ test('adds all properties expectation', () => {
    expect(thing).not.toHaveAllProperties('four', 'five');
 });
 
+test('adds set equality expectation', () => {
+   const s = new Set<string>(['one', 'two', 'three']);
+   expect(s).toHaveValues('one', 'two', 'three');
+   expect(s).not.toHaveValues('one', 'two', 'four');
+});
+
 test('adds lat/lng point expectation', () => {
    expect([120, -35]).toBeLatLng();
    expect([200, 100]).not.toBeLatLng();
