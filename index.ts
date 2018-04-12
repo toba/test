@@ -1,4 +1,5 @@
 import { log } from '@toba/logger';
+export { OAuth } from './lib/mock-oauth';
 export { mockFetch } from './lib/mock-fetch';
 export { MockResponse } from './lib/mock-response';
 export { MockRequest } from './lib/mock-request';
