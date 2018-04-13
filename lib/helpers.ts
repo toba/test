@@ -1,4 +1,4 @@
-import { is, isEqualList } from '@toba/tools';
+import { is, includesAll } from '@toba/tools';
 
 export interface ExpectResponse {
    message: () => string;
@@ -75,7 +75,7 @@ function toHaveValues<U, T extends Set<U> | Map<any, U>>(
    ...values: U[]
 ): ExpectResponse {
    const setList = Array.from(received.values());
-   const pass = isEqualList(setList, values);
+   const pass = includesAll(setList, ...values);
 
    return pass
       ? {
@@ -96,7 +96,7 @@ function toHaveKeys<U, T extends Map<U, any>>(
    ...keys: U[]
 ): ExpectResponse {
    const setList = Array.from(received.keys());
-   const pass = isEqualList(setList, keys);
+   const pass = includesAll(setList, ...keys);
 
    return pass
       ? {
