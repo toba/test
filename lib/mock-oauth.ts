@@ -1,6 +1,15 @@
 export type OAuthGetCallback = (err: any, content: string) => void;
 export type OAuthGet = (url: string, fn: OAuthGetCallback) => void;
 
+/**
+ * Match fetch type. Must include `any` because DOM `fetch` and Node `fetch`
+ * use different types, albeit having the same names.
+ */
+type Fetch = (
+   url: string | Request | any,
+   init?: RequestInit | any
+) => Promise<Response | any>;
+
 let mockGetter: OAuthGet = null;
 
 /**
@@ -10,7 +19,7 @@ export function useGetter(getter: OAuthGet): void {
    mockGetter = getter;
 }
 
-export function useFetch(fetch: (url: string) => Promise<Response>): void {
+export function useFetch(fetch: Fetch): void {
    mockGetter = (url: string, callback: OAuthGetCallback) => {
       fetch(url)
          .then(res => res.text())
