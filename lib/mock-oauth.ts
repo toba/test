@@ -5,20 +5,22 @@ let mockGetter: OAuthGet = null;
 
 /**
  * Assign URL getter to be used by the mock OAuth class.
- *
- * @example
- *
- *  fetch(url)
- *     .then(res => res.text())
- *     .then(body => {
- *        callback(null, body);
- *     })
- *     .catch(err => {
- *        callback(err, null);
- *     });
  */
-export function mockOAuthGetter(getter: OAuthGet): void {
+export function useGetter(getter: OAuthGet): void {
    mockGetter = getter;
+}
+
+export function useFetch(fetch: (url: string) => Promise<Response>): void {
+   mockGetter = (url: string, callback: OAuthGetCallback) => {
+      fetch(url)
+         .then(res => res.text())
+         .then(body => {
+            callback(null, body);
+         })
+         .catch(err => {
+            callback(err, null);
+         });
+   };
 }
 
 /**

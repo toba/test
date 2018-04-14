@@ -1,7 +1,7 @@
 {
    "name": "@toba/test",
    "description": "Toba Test",
-   "version": "1.12.4",
+   "version": "1.12.5",
    "private": false,
    "publishConfig": {
       "access": "public"
@@ -32,6 +32,7 @@
    },
    "devDependencies": {
       "@toba/build": "^1.4.0",
+      "@types/node-fetch": "^1.6.8",
       "typescript": "^2.8.0"
    },
    "dependencies": {

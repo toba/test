@@ -1,4 +1,4 @@
-import { MockAuth, mockOAuthGetter } from './mock-oauth';
+import { MockAuth, useGetter } from './mock-oauth';
 
 const create = () =>
    new MockAuth(
@@ -34,7 +34,7 @@ test('Accepts custom method for mocked file retrieval', () => {
       }
    };
 
-   mockOAuthGetter(getter);
+   useGetter(getter);
 
    oauth.get('good', 'accessToken', 'secret', (err: any, body: string) => {
       expect(err).toBeNull();

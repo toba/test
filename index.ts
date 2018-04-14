@@ -3,7 +3,8 @@ import { log } from '@toba/logger';
 export { mockFetch } from './lib/mock-fetch';
 export {
    MockAuth,
-   mockOAuthGetter,
+   useGetter,
+   useFetch,
    OAuthGet,
    OAuthGetCallback
 } from './lib/mock-oauth';
