@@ -1,7 +1,12 @@
 import { log } from '@toba/logger';
 // mockFetch must be imported before OAuth since OAuth may utilize a node-fetch mock
 export { mockFetch } from './lib/mock-fetch';
-export { MockAuth } from './lib/mock-oauth';
+export {
+   MockAuth,
+   mockOAuthGetter,
+   OAuthGet,
+   OAuthGetCallback
+} from './lib/mock-oauth';
 export { MockResponse } from './lib/mock-response';
 export { MockRequest } from './lib/mock-request';
 export { readFile, readBigFile, loadStream, readFileText } from './lib/file';

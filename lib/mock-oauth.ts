@@ -1,4 +1,25 @@
-import fetch from 'node-fetch';
+export type OAuthGetCallback = (err: any, content: string) => void;
+export type OAuthGet = (url: string, fn: OAuthGetCallback) => void;
+
+let mockGetter: OAuthGet = null;
+
+/**
+ * Assign URL getter to be used by the mock OAuth class.
+ *
+ * @example
+ *
+ *  fetch(url)
+ *     .then(res => res.text())
+ *     .then(body => {
+ *        callback(null, body);
+ *     })
+ *     .catch(err => {
+ *        callback(err, null);
+ *     });
+ */
+export function mockOAuthGetter(getter: OAuthGet): void {
+   mockGetter = getter;
+}
 
 /**
  * Mock the OAuth client imported by `@toba/oauth` by adding an `oauth.ts` to
@@ -34,25 +55,19 @@ export class MockAuth {
    }
 
    /**
-    * Get URL as basic fetch and record the token information. `node-fetch`
-    * may also be mocked to return a local file.
+    * Respond to URL request with `mockGetter`.
     */
    get(
       url: string,
       accessToken: string,
       secret: string,
-      callback: (err: any, body: string) => void
+      callback: OAuthGetCallback
    ) {
       this.last.accessToken = accessToken;
       this.last.secret = secret;
 
-      fetch(url)
-         .then(res => res.text())
-         .then(body => {
-            callback(null, body);
-         })
-         .catch(err => {
-            callback(err, null);
-         });
+      if (mockGetter !== null) {
+         mockGetter(url, callback);
+      }
    }
 }
