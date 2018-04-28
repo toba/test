@@ -1,4 +1,4 @@
-import { HttpStatus, MimeType, Encoding, Header, is, merge } from '@toba/tools';
+import { HttpStatus, MimeType, Encoding, Header, is } from '@toba/tools';
 import * as util from 'util';
 import { ServerResponse, IncomingMessage } from 'http';
 
@@ -18,7 +18,7 @@ export class MockResponse extends ServerResponse {
    endOnRender: boolean;
    app: any;
    ended: boolean;
-   headers: { [key: string]: string };
+   headers: Map<string, string>;
    content: string;
    send: any;
    jsonp: any;
@@ -49,20 +49,22 @@ export class MockResponse extends ServerResponse {
    }
 
    setHeader(key: string, value: string): MockResponse {
-      this.headers[key] = value;
+      this.headers.set(key, value);
       return this;
    }
 
    /**
-    * Set header value(s)
+    * Set header value(s).
     */
    set(field: any): any;
    set(field: string, value?: string): any;
    set(keyOrHash: string | { [key: string]: string }, value: string = null) {
-      if (typeof keyOrHash == is.Type.String) {
-         this.headers[keyOrHash as string] = value;
+      if (is.text(keyOrHash)) {
+         this.headers.set(keyOrHash, value);
       } else {
-         this.headers = merge(this.headers, keyOrHash);
+         for (const key in keyOrHash) {
+            this.headers.set(key, keyOrHash[key]);
+         }
       }
    }
 
@@ -156,7 +158,7 @@ export class MockResponse extends ServerResponse {
    reset(): MockResponse {
       this.httpStatus = HttpStatus.OK;
       this.ended = false;
-      this.headers = {};
+      this.headers = new Map();
       this.content = null;
       this.endOnRender = true;
       this.rendered = {

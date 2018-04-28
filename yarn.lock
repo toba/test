@@ -149,9 +149,15 @@
     flat "^4.0.0"
     logfmt "^1.2.0"
 
-"@toba/tools@^1.19.0", "@toba/tools@^1.20.0":
+"@toba/tools@^1.19.0":
   version "1.20.0"
   resolved "https://registry.yarnpkg.com/@toba/tools/-/tools-1.20.0.tgz#77f0c6b6c4443a42f5167ca1ce75426e3bbd7ad9"
+  dependencies:
+    zlib "^1.0.5"
+
+"@toba/tools@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@toba/tools/-/tools-2.2.0.tgz#dd3090ccab75de546e5b6e37fa6fcd1836350790"
   dependencies:
     zlib "^1.0.5"
 
@@ -165,9 +171,13 @@
   dependencies:
     "@types/node" "*"
 
-"@types/node@*", "@types/node@^9.6.0":
+"@types/node@*":
   version "9.6.5"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-9.6.5.tgz#ee700810fdf49ac1c399fc5980b7559b3e5a381d"
+
+"@types/node@^10.0.0":
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.0.0.tgz#c40f8e07dce607d3ef25a626b93a6a7cdcf97881"
 
 abab@^1.0.4:
   version "1.0.4"

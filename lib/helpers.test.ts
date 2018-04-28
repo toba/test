@@ -37,6 +37,13 @@ test('adds map key expectation', () => {
    expect(s).not.toHaveKeys(1, 2, 4);
 });
 
+test('adds map key-value expectation', () => {
+   const s = new Map<number, string>([[1, 'one'], [2, 'two'], [3, 'three']]);
+   expect(s).toHaveKeyValue(1, 'one');
+   expect(s).toHaveKeyValue(2, 'two');
+   expect(s).not.toHaveKeyValue(1, 'three');
+});
+
 test('adds lat/lng point expectation', () => {
    expect([120, -35]).toBeLatLng();
    expect([200, 100]).not.toBeLatLng();

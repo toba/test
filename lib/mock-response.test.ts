@@ -1,3 +1,4 @@
+import '../index';
 import { HttpStatus, Header } from '@toba/tools';
 import { MockResponse, MockRequest } from '../index';
 
@@ -15,15 +16,15 @@ test('accepts headers', () => {
    res.setHeader(Header.Expires, 'Tue, 01 Jan 1980 1:00:00 GMT');
    res.setHeader(Header.PRAGMA, 'no-cache');
 
-   expect(res.headers).toHaveProperty(Header.PRAGMA, 'no-cache');
+   expect(res.headers).toHaveKeyValue(Header.PRAGMA, 'no-cache');
 
    res.set({
       'Fake-Header1': 'header-value1',
       'Fake-Header2': 'header-value2'
    });
 
-   expect(res.headers).toHaveProperty('Fake-Header1', 'header-value1');
-   expect(res.headers).toHaveProperty('Fake-Header2', 'header-value2');
+   expect(res.headers).toHaveKeyValue('Fake-Header1', 'header-value1');
+   expect(res.headers).toHaveKeyValue('Fake-Header2', 'header-value2');
 });
 
 test('can be written to', () => {

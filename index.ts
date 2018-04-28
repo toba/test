@@ -35,6 +35,7 @@ declare global {
          toBeLatLng: () => ExpectResponse;
          toHaveValues: <T>(...values: T[]) => ExpectResponse;
          toHaveKeys: <T>(...keys: T[]) => ExpectResponse;
+         toHaveKeyValue: <K, V>(key: K, value: V) => ExpectResponse;
       }
    }
 }
