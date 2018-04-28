@@ -100,12 +100,12 @@ function toHaveKeyValue<K, V>(
 
    return pass
       ? {
-           message: () => `expected Map to have key ${key} with value ${value}`,
+           message: () =>
+              `expected Map not to have key ${key} with value ${value}`,
            pass
         }
       : {
-           message: () =>
-              `expected Map not to have key ${key} with value ${value}`,
+           message: () => `expected Map to have key ${key} with value ${value}`,
            pass
         };
 }
