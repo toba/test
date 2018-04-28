@@ -35,7 +35,7 @@ export class MockRequest extends IncomingMessage {
    xhr: boolean;
    cookies: any;
    method: string;
-   query: any;
+   query: { [key: string]: string };
    route: any;
    signedCookies: any;
    originalUrl: string;
