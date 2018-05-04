@@ -1,7 +1,7 @@
 {
    "name": "@toba/test",
    "description": "Toba Test",
-   "version": "1.13.4",
+   "version": "1.13.5",
    "private": false,
    "publishConfig": {
       "access": "public"
@@ -28,16 +28,16 @@
    },
    "license": "MIT",
    "peerDependencies": {
-      "typescript": "^2.7.0"
+      "typescript": "^2.8.0"
    },
    "devDependencies": {
-      "@toba/build": "^1.4.0",
+      "@toba/build": "^1.5.0",
       "@types/node-fetch": "^1.6.8",
       "typescript": "^2.8.0"
    },
    "dependencies": {
       "@toba/logger": "^1.0.4",
-      "@toba/tools": "^2.2.0",
+      "@toba/tools": "^3.0.0",
       "@types/jest": "^22.2.0",
       "@types/node": "^10.0.0",
       "jest": "^22.4.0",

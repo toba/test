@@ -129,9 +129,9 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@toba/build@^1.4.0":
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/@toba/build/-/build-1.4.0.tgz#9f2614b03ed6a42c3e7f89dac6f6e6964e614987"
+"@toba/build@^1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@toba/build/-/build-1.5.0.tgz#fe6af91a7879954be8a32dafa4cfa3f61e11b6a3"
   dependencies:
     stylelint "^9.1.0"
     stylelint-config-standard "^18.2.0"
@@ -155,9 +155,9 @@
   dependencies:
     zlib "^1.0.5"
 
-"@toba/tools@^2.2.0":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@toba/tools/-/tools-2.2.0.tgz#dd3090ccab75de546e5b6e37fa6fcd1836350790"
+"@toba/tools@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@toba/tools/-/tools-3.0.0.tgz#a6665aace9bd9281968368790ce02135f416eb8d"
   dependencies:
     zlib "^1.0.5"
 
