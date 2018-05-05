@@ -27,6 +27,11 @@ test('accepts headers', () => {
    expect(res.headers).toHaveKeyValue('Fake-Header2', 'header-value2');
 });
 
+test('has setter/getter for headers', () => {
+   res.header('Fake-Header1', 'header-value1');
+   expect(res.header('Fake-Header1')).toBe('header-value1');
+});
+
 test('can be written to', () => {
    const html = '<html><head></head><body>Test Page</body></html>';
    res.write(html);

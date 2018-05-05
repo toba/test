@@ -125,7 +125,7 @@ export class MockResponse extends ServerResponse {
    }
 
    /**
-    * https://nodejs.org/api/stream.html#stream_class_stream_writable
+    * @see https://nodejs.org/api/stream.html#stream_class_stream_writable
     */
    write(chunk: any, encodingOrCb?: string | Function, cb?: Function) {
       let encoding: string = Encoding.UTF8;
@@ -212,12 +212,23 @@ export class MockResponse extends ServerResponse {
    }
 
    attachment(_filename?: string): any {
-      return null;
+      return null; 
    }
 
-   header(field: any): any;
-   header(_field: string, _value?: string): any {
-      return null;
+   /**
+    * Retrieve header value.
+    */
+   header(field: string): any;
+   /**
+    * Set header value.
+    */
+   header(field: string, value: string): any;
+   header(field: string, value?: string): any {
+      if (is.value(value)) {
+         this.headers.set(field, value);
+      } else {
+         return this.headers.get(field);
+      }
    }
 
    get(_field: string): string {
