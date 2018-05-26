@@ -9,12 +9,17 @@ export class MockResponse extends ServerResponse {
    httpStatus: HttpStatus;
    /**
     * Method to call when response is complete. Can be assigned as test
-    * middleware next() method so that response.end() and middelware next()
-    * are both captured. It defaults to an empty Jest mock.
+    * middleware `next()` method so that `response.end()` and middelware
+    * `next()` are both captured. It defaults to an empty Jest mock.
     */
    onEnd: () => void;
 
-   /** Whether response should be ended after render is called */
+   /**
+    * Whether response should be ended after render is called. This can be used
+    * to automatically trigger an `onEnd()` handler. However, if the rendered
+    * output is compressed or otherwise post-processed before sending to the
+    * client then making this `true` will short-circuit the handler.
+    */
    endOnRender: boolean;
    app: any;
    ended: boolean;
@@ -212,7 +217,7 @@ export class MockResponse extends ServerResponse {
    }
 
    attachment(_filename?: string): any {
-      return null; 
+      return null;
    }
 
    /**
