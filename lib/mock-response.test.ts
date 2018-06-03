@@ -48,9 +48,9 @@ test('simulates template rendering', () => {
    res.render('template', { key1: 'value1', key2: 'value2' });
 
    expect(res.rendered).toHaveProperty('template', 'template');
-   expect(res.rendered).toHaveProperty('options');
-   expect(res.rendered.options).toHaveProperty('key1', 'value1');
-   expect(res.rendered.options).toHaveProperty('key2', 'value2');
+   expect(res.rendered).toHaveProperty('context');
+   expect(res.rendered.context).toHaveProperty('key1', 'value1');
+   expect(res.rendered.context).toHaveProperty('key2', 'value2');
 });
 
 test('tracks whether response is ended', () => {

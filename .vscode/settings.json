@@ -2,5 +2,6 @@
    "spellright.language": "en",
    "spellright.documentTypes": ["markdown", "latex"],
    "eslint.enable": false,
-   "jest.enableCodeLens": true
+   "jest.enableCodeLens": true,
+   "typescript.tsdk": "node_modules\\typescript\\lib"
 }

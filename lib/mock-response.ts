@@ -31,7 +31,7 @@ export class MockResponse extends ServerResponse {
    charset: string;
    rendered: {
       template: string;
-      options: { [key: string]: any };
+      context: { [key: string]: any };
       json: string;
    };
 
@@ -119,7 +119,7 @@ export class MockResponse extends ServerResponse {
    ) {
       delete options['config'];
       this.rendered.template = template;
-      this.rendered.options = options;
+      this.rendered.context = options;
 
       if (is.callable(callback)) {
          callback(null, util.inspect(this.rendered));
@@ -168,7 +168,7 @@ export class MockResponse extends ServerResponse {
       this.endOnRender = true;
       this.rendered = {
          template: null,
-         options: null,
+         context: null,
          json: null
       };
       this.redirected = {
