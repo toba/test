@@ -1,4 +1,5 @@
 import '../index';
+import { MockResponse } from '../';
 
 test('adds within expectation', () => {
    expect(3).toBeWithin(2, 5);
@@ -47,4 +48,22 @@ test('adds map key-value expectation', () => {
 test('adds lat/lng point expectation', () => {
    expect([120, -35]).toBeLatLng();
    expect([200, 100]).not.toBeLatLng();
+});
+
+test('adds response render template expectation', done => {
+   const res = new MockResponse();
+   res.onEnd = () => {
+      expect(res).toRenderTemplate('template');
+      done();
+   };
+   res.render('template');
+});
+
+test('adds response redirect expectation', done => {
+   const res = new MockResponse();
+   res.onEnd = () => {
+      expect(res).toRedirectTo('./some-url');
+      done();
+   };
+   res.redirect('./some-url');
 });

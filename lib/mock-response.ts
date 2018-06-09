@@ -1,6 +1,7 @@
 import { HttpStatus, MimeType, Encoding, Header, is } from '@toba/tools';
 import * as util from 'util';
 import { ServerResponse, IncomingMessage } from 'http';
+import { MockRequest } from '../';
 
 /**
  * Mock Node HTTP response with additional methods to capture end and redirect.
@@ -36,6 +37,16 @@ export class MockResponse extends ServerResponse {
    };
 
    /**
+    * Request that initiated the response.
+    */
+   forRequest: MockRequest;
+
+   /**
+    * Whether response is for a `MockRequest`.
+    */
+   private isMockRequest = false;
+
+   /**
     * Capture redirection values.
     */
    redirected: {
@@ -43,9 +54,14 @@ export class MockResponse extends ServerResponse {
       url: string;
    };
 
-   constructor(req: IncomingMessage) {
+   constructor(req: IncomingMessage = new MockRequest()) {
       super(req);
-      this.reset();
+      this.reset(false);
+
+      if (req instanceof MockRequest) {
+         this.isMockRequest = true;
+         this.forRequest = req;
+      }
    }
 
    status(code: number): any {
@@ -87,12 +103,19 @@ export class MockResponse extends ServerResponse {
    redirect(first: string | number | HttpStatus, second?: string | number) {
       let status: HttpStatus;
       let url: string;
+
       if (is.number(first)) {
          status = first;
          url = second as string;
       } else {
-         status = second as number;
          url = first;
+         if (is.number(second)) {
+            status = second;
+         } else if (is.text(second)) {
+            status = parseInt(second);
+         } else {
+            status = HttpStatus.PermanentRedirect;
+         }
       }
       this.redirected.status = status;
       this.redirected.url = url;
@@ -162,7 +185,7 @@ export class MockResponse extends ServerResponse {
       return this;
    }
 
-   reset(): MockResponse {
+   reset(alsoResetRequest = true): MockResponse {
       this.httpStatus = HttpStatus.OK;
       this.ended = false;
       this.headers = new Map();
@@ -178,6 +201,9 @@ export class MockResponse extends ServerResponse {
          url: null
       };
 
+      if (alsoResetRequest && this.isMockRequest) {
+         this.forRequest.reset();
+      }
       return this;
    }
 

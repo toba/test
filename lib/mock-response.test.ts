@@ -1,9 +1,8 @@
 import '../index';
 import { HttpStatus, Header } from '@toba/tools';
-import { MockResponse, MockRequest } from '../index';
+import { MockResponse } from '../index';
 
-const req = new MockRequest();
-const res = new MockResponse(req);
+const res = new MockResponse();
 
 beforeEach(() => res.reset());
 
@@ -43,6 +42,16 @@ test('captures redirects', () => {
    res.redirect(HttpStatus.PermanentRedirect, 'url');
    expect(res.redirected.status).toBe(HttpStatus.PermanentRedirect);
    expect(res.redirected.url).toBe('url');
+
+   // overload sets 302 as default
+   res.reset().redirect('url');
+   expect(res.redirected.status).toBe(HttpStatus.PermanentRedirect);
+   expect(res.redirected.url).toBe('url');
+
+   // can also reverse argument order (crazy Express)
+   res.reset().redirect('url', 302);
+   expect(res.redirected.status).toBe(HttpStatus.PermanentRedirect);
+   expect(res.redirected.url).toBe('url');
 });
 
 test('simulates template rendering', () => {
@@ -66,7 +75,6 @@ test('can be reset and re-used', () => {
    expect(res).toRenderTemplate('template1');
    expect(res.ended).toBe(true);
 
-   req.reset();
    res.reset();
 
    expect(res.ended).toBe(false);

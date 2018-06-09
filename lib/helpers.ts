@@ -7,9 +7,7 @@ export interface ExpectResponse {
 }
 
 /**
- * Build Jest standard expectation response. The Jest runner will display the
- * incorrect value actually received so that doesn't need to be included in
- * the message.
+ * Build Jest standard expectation response.
  *
  * @param pass Whether test passed
  * @param expectation Phrase to display when test fails
@@ -83,7 +81,9 @@ function toHaveValues<U, T extends Set<U> | Map<any, U>>(
 
    return makeResponse(
       pass,
-      `Set or Map to have values ${values.join(', ')}`,
+      `Set or Map to have values ${values.join(', ')} but found ${setList.join(
+         ', '
+      )}`,
       `Set or Map to not have all values ${values.join(', ')}`
    );
 }
@@ -113,7 +113,7 @@ function toHaveKeys<U, T extends Map<U, any>>(
 
    return makeResponse(
       pass,
-      `Map to have keys ${keys.join(', ')}`,
+      `Map to have keys ${keys.join(', ')} but found ${setList.join(', ')}`,
       `Map to not have all keys ${keys.join(', ')}"`
    );
 }
@@ -131,11 +131,15 @@ function toRenderTemplate(
       is.value(received.rendered) &&
       received.rendered.template == name;
 
-   return makeResponse(
-      pass,
-      `response to have template ${name}`,
-      `response not to have template ${name}`
-   );
+   let msg = `to render "${name}" with status ${HttpStatus.OK}`;
+
+   if (!pass) {
+      msg += ` but received status ${received.statusCode} for "${
+         received.rendered.template
+      }"`;
+   }
+
+   return makeResponse(pass, `response ${msg}`, `response not ${msg}`);
 }
 
 /**
@@ -151,11 +155,15 @@ function toRedirectTo(
       received.redirected.status == HttpStatus.PermanentRedirect &&
       received.redirected.url == url;
 
-   return makeResponse(
-      pass,
-      `response to redirect to ${url}`,
-      `response not to redirect to ${url}`
-   );
+   let msg = `to ${HttpStatus.PermanentRedirect} redirect to "${url}"`;
+
+   if (!pass) {
+      msg += ` but received ${received.redirected.status} redirect to "${
+         received.redirected.url
+      }"`;
+   }
+
+   return makeResponse(pass, `response ${msg}`, `response not ${msg}`);
 }
 
 /**
