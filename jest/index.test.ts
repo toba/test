@@ -5,7 +5,7 @@ import * as jestConfig from './index';
  */
 const modulePath = '<rootDir>/node_modules/';
 
-test('Transforms TypeScript modules and ignores others', () => {
+test('transforms TypeScript modules and ignores others', () => {
    expect(jestConfig.transformIgnorePatterns).toBeInstanceOf(Array);
    const re = new RegExp(jestConfig.transformIgnorePatterns[0]);
 

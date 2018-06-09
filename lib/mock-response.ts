@@ -114,12 +114,14 @@ export class MockResponse extends ServerResponse {
     */
    render(
       template: string,
-      options: { [key: string]: any },
+      context?: { [key: string]: any },
       callback?: (err: Error, output: string) => void
    ) {
-      delete options['config'];
+      if (is.value<{ [key: string]: any }>(context)) {
+         delete context['config'];
+      }
       this.rendered.template = template;
-      this.rendered.context = options;
+      this.rendered.context = context;
 
       if (is.callable(callback)) {
          callback(null, util.inspect(this.rendered));

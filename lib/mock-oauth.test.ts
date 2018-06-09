@@ -11,7 +11,7 @@ const create = () =>
       'hashing'
    );
 
-test('Mocks file retrieval', () => {
+test('mocks file retrieval', () => {
    const oauth = create();
    expect(oauth).toBeDefined();
 
@@ -24,7 +24,7 @@ test('Mocks file retrieval', () => {
    expect(fn).toHaveBeenCalledTimes(0);
 });
 
-test('Accepts custom method for mocked file retrieval', () => {
+test('accepts custom method for mocked file retrieval', () => {
    const oauth = create();
    const getter = (url: string, fn: (err: any, body: string) => void) => {
       if (url == 'good') {

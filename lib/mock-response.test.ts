@@ -2,7 +2,8 @@ import '../index';
 import { HttpStatus, Header } from '@toba/tools';
 import { MockResponse, MockRequest } from '../index';
 
-const res = new MockResponse(new MockRequest());
+const req = new MockRequest();
+const res = new MockResponse(req);
 
 beforeEach(() => res.reset());
 
@@ -60,7 +61,17 @@ test('tracks whether response is ended', () => {
 });
 
 test('can be reset and re-used', () => {
+   res.render('template1');
+
+   expect(res).toRenderTemplate('template1');
+   expect(res.ended).toBe(true);
+
+   req.reset();
    res.reset();
+
    expect(res.ended).toBe(false);
    expect(res.httpStatus).toBe(HttpStatus.OK);
+
+   res.render('template2');
+   expect(res).toRenderTemplate('template2');
 });

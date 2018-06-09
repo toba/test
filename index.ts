@@ -29,13 +29,42 @@ export const sleep = (ms: number) =>
 // https://stackoverflow.com/questions/43667085/extending-third-party-module-that-is-globally-exposed
 declare global {
    namespace jest {
-      interface Matchers {
+      // These are only to supplement the type definitions and must be manually
+      // synchronized with the concrete implementations in `helpers.ts`
+      interface Matchers<R> {
+         /**
+          * Expect a number to be within or equal to bounding numbers.
+          */
          toBeWithin: (min: number, max: number) => ExpectResponse;
+         /**
+          * Expect an object to have all named properties.
+          */
          toHaveAllProperties: (...keys: string[]) => ExpectResponse;
+         /**
+          * Expect first two numbers in array to be valid latitude and longitude
+          * values.
+          */
          toBeLatLng: () => ExpectResponse;
+         /**
+          * Expect a `Set` or `Map` to contain all values.
+          */
          toHaveValues: <T>(...values: T[]) => ExpectResponse;
+         /**
+          * Expect a `Map` to have all keys.
+          */
          toHaveKeys: <T>(...keys: T[]) => ExpectResponse;
+         /**
+          * Expect a `Map` to have a particular key-value.
+          */
          toHaveKeyValue: <K, V>(key: K, value: V) => ExpectResponse;
+         /**
+          * Expect `MockResponse` to have rendered a specific template.
+          */
+         toRenderTemplate: (name: string) => ExpectResponse;
+         /**
+          * Expect `MockResponse` to have redirected to a specific URL.
+          */
+         toRedirect: (url: string) => ExpectResponse;
       }
    }
 }
