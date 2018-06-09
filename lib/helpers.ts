@@ -141,7 +141,7 @@ function toRenderTemplate(
 /**
  * Expect `MockResponse` to have redirected to a specific URL.
  */
-function toRedirect(
+function toRedirectTo(
    this: jest.MatcherUtils,
    received: MockResponse,
    url: string
@@ -169,5 +169,5 @@ expect.extend({
    toHaveKeyValue,
    toHaveAllProperties,
    toRenderTemplate,
-   toRedirect
+   toRedirectTo
 });

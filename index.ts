@@ -64,7 +64,7 @@ declare global {
          /**
           * Expect `MockResponse` to have redirected to a specific URL.
           */
-         toRedirect: (url: string) => ExpectResponse;
+         toRedirectTo: (url: string) => ExpectResponse;
       }
    }
 }
