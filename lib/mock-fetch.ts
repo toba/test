@@ -24,7 +24,7 @@ export function mockFetch(localPath: (url: string | Request) => string) {
       new Promise((resolve, reject) => {
          const fileName = localPath(url);
          /* tslint:disable-next-line:no-console */
-         console.debug(`Substituting "${fileName}" for "${url}"`);
+         // console.debug(`Substituting "${fileName}" for "${url}"`);
 
          fs.readFile(fileName, (err, data) => {
             if (err === null) {
