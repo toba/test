@@ -1,7 +1,7 @@
 {
    "name": "@toba/test",
    "description": "Toba Test",
-   "version": "1.15.0",
+   "version": "1.16.0",
    "private": false,
    "publishConfig": {
       "access": "public"
@@ -11,6 +11,7 @@
       "index.ts",
       "lib/file.ts",
       "lib/helpers.ts",
+      "lib/mock-express.ts",
       "lib/mock-fetch.ts",
       "lib/mock-oauth.ts",
       "lib/mock-response.ts",
@@ -37,7 +38,7 @@
    },
    "dependencies": {
       "@toba/logger": "^1.0.4",
-      "@toba/tools": "^3.1.0",
+      "@toba/tools": "^3.2.0",
       "@types/jest": "^23.0.0",
       "@types/node": "^10.3.0",
       "jest": "^23.1.0",

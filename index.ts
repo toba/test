@@ -10,6 +10,7 @@ export {
 } from './lib/mock-oauth';
 export { MockResponse } from './lib/mock-response';
 export { MockRequest } from './lib/mock-request';
+export { MockExpressApp } from './lib/mock-express';
 export { readFile, readBigFile, loadStream, readFileText } from './lib/file';
 
 import './lib/helpers';

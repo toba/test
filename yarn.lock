@@ -63,9 +63,15 @@
     flat "^4.0.0"
     logfmt "^1.2.0"
 
-"@toba/tools@^3.0.0", "@toba/tools@^3.1.0":
+"@toba/tools@^3.0.0":
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/@toba/tools/-/tools-3.1.1.tgz#cb1328878eefe9b7a8ac1eacbe80358cce7684c2"
+  dependencies:
+    zlib "^1.0.5"
+
+"@toba/tools@^3.2.0":
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/@toba/tools/-/tools-3.2.1.tgz#c941f68dabaf845c6fe682c635a3cc98a8d4b62d"
   dependencies:
     zlib "^1.0.5"
 

@@ -14,13 +14,46 @@ interface RequestHandler {
    (req: IncomingMessage, res: ServerResponse, next: NextFunction): any;
 }
 
+interface MockRoute {
+   path: string;
+   stack: StackHandler[];
+}
+
+interface StackRoute {
+   route: MockRoute;
+}
+
+interface StackHandler {
+   method: string;
+   handle: RequestHandler;
+}
+
 interface Middleware extends RequestHandler {
    name: HandlerType;
    /** Internal stack of handlers */
    stack: any[];
 }
 
-export class ExpressApp extends EventEmitter {
+export class MockMiddleware {
+   stack: StackRoute[];
+   name: HandlerType;
+
+   constructor(type = HandlerType.Route) {
+      this.stack = [];
+      this.name = type;
+   }
+
+   get(pattern: string, handler: RequestHandler) {
+      this.stack.push({
+         route: {
+            path: pattern,
+            stack: [{ handle: handler, method: 'get' }]
+         }
+      });
+   }
+}
+
+export class MockExpressApp extends EventEmitter {
    routes: {
       get: Map<string, RequestHandler>;
       post: Map<string, RequestHandler>;
@@ -171,7 +204,7 @@ export class ExpressApp extends EventEmitter {
    listen(_p1: any, _p2: any, _p3?: any, _p4?: any): Server {
       return null;
    }
-   on: (event: string, callback: (parent: ExpressApp) => void) => this;
+   on: (event: string, callback: (parent: MockExpressApp) => void) => this;
 
    _router: any;
    all: any;
