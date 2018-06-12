@@ -1,21 +1,21 @@
 import { log } from '@toba/logger';
 // mockFetch must be imported before OAuth since OAuth may utilize a node-fetch mock
-export { mockFetch } from './lib/mock-fetch';
+export { mockFetch } from './mock-fetch';
 export {
    MockAuth,
    useGetter,
    useFetch,
    OAuthGet,
    OAuthGetCallback
-} from './lib/mock-oauth';
-export { MockResponse } from './lib/mock-response';
-export { MockRequest } from './lib/mock-request';
-export { MockExpressApp } from './lib/mock-express';
-export { readFile, readBigFile, loadStream, readFileText } from './lib/file';
+} from './mock-oauth';
+export { MockResponse } from './mock-response';
+export { MockRequest } from './mock-request';
+export { MockExpressApp } from './mock-express';
+export { readFile, readBigFile, loadStream, readFileText } from './file';
 
-import './lib/helpers';
+import './helpers';
 
-import { ExpectResponse } from './lib/helpers';
+import { ExpectResponse } from './helpers';
 
 // disable color output for tests (messes up tips and console output)
 log.update({ color: false });

@@ -1,5 +1,5 @@
-import '../index';
-import { MockResponse } from '../';
+import './index';
+import { MockResponse } from './index';
 
 test('adds within expectation', () => {
    expect(3).toBeWithin(2, 5);

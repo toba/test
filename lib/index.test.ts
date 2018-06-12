@@ -1,5 +1,5 @@
 import { lipsum, sleep } from './index';
-import * as JestConfig from './jest/';
+import * as JestConfig from '../jest/';
 
 test('helpers are defined', () => {
    expect(lipsum).toBeDefined();

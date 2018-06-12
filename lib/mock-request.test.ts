@@ -1,4 +1,4 @@
-import { MockRequest } from '../index';
+import { MockRequest } from './index';
 import { MockSocket } from './mock-request';
 
 const req = new MockRequest();

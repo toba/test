@@ -1,6 +1,6 @@
-import '../index';
+import './index';
 import { HttpStatus, Header } from '@toba/tools';
-import { MockResponse } from '../index';
+import { MockResponse } from './index';
 
 const res = new MockResponse();
 

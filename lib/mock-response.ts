@@ -1,7 +1,7 @@
 import { HttpStatus, MimeType, Encoding, Header, is } from '@toba/tools';
 import * as util from 'util';
 import { ServerResponse, IncomingMessage } from 'http';
-import { MockRequest } from '../';
+import { MockRequest } from './index';
 
 /**
  * Mock Node HTTP response with additional methods to capture end and redirect.

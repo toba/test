@@ -1,5 +1,5 @@
 import * as path from 'path';
-import { readFile, readBigFile, readFileText } from '../index';
+import { readFile, readBigFile, readFileText } from './index';
 import { normalizePath } from './file';
 
 test('normalizes file path', () => {

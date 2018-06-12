@@ -1,5 +1,5 @@
 import { is, includesAll, HttpStatus } from '@toba/tools';
-import { MockResponse } from '../';
+import { MockResponse } from './index';
 
 export interface ExpectResponse {
    message: () => string;

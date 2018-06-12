@@ -1,4 +1,4 @@
-import { MockExpressApp } from '../index';
+import { MockExpressApp } from './index';
 import { MockMiddleware } from './mock-express';
 
 const app = new MockExpressApp();
