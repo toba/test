@@ -1,7 +1,7 @@
 {
    "name": "@toba/test",
    "description": "Toba Test",
-   "version": "1.16.1",
+   "version": "1.16.2",
    "private": false,
    "publishConfig": {
       "access": "public"
@@ -10,13 +10,13 @@
    "types:": "dist/index.d.ts",
    "files": [
       "dist/**/*",
-      "jest/index/js"
+      "jest/index.js"
    ],
    "engines": {
       "node": ">=10.0.0"
    },
    "author": {
-      "name": "Jason Abbott" 
+      "name": "Jason Abbott"
    },
    "scripts": {
       "test": "jest --coverage"
