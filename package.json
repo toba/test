@@ -1,7 +1,7 @@
 {
    "name": "@toba/test",
    "description": "Toba Test",
-   "version": "1.17.0",
+   "version": "1.17.1",
    "private": false,
    "publishConfig": {
       "access": "public"
@@ -19,6 +19,7 @@
       "name": "Jason Abbott"
    },
    "scripts": {
+      "prepublishOnly": "./node_modules/.bin/tsc",
       "test": "jest --coverage"
    },
    "license": "MIT",
