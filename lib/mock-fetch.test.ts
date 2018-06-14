@@ -11,4 +11,8 @@ test('mocks fetch to read local file', async () => {
    const text = await res.text();
    expect(text).toBeDefined();
    expect(text.includes('# Usage')).toBe(true);
+
+   const data = await res.buffer();
+   expect(data).toBeDefined();
+   expect(data.length).toBe(831);
 });
