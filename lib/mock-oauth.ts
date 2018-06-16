@@ -1,3 +1,4 @@
+import { is } from '@toba/tools';
 export type OAuthGetCallback = (err: any, content: string) => void;
 export type OAuthGet = (url: string, fn: OAuthGetCallback) => void;
 
@@ -13,13 +14,17 @@ type Fetch = (
 let mockGetter: OAuthGet = null;
 
 /**
- * Assign URL getter to be used by the mock OAuth class.
+ * Assign URL getter to use in the `OAuth.get()` method. This is more generic
+ * than using `oAuthGetWithFetch()` since the fetch API is known.
  */
-export function useGetter(getter: OAuthGet): void {
+export function useOAuthGetter(getter: OAuthGet): void {
    mockGetter = getter;
 }
 
-export function useFetch(fetch: Fetch): void {
+/**
+ * Assign fetch function to use in the `OAuth.get()` method.
+ */
+export function oAuthGetWithFetch(fetch: Fetch): void {
    mockGetter = (url: string, callback: OAuthGetCallback) => {
       fetch(url)
          .then(res => res.text())
@@ -31,6 +36,13 @@ export function useFetch(fetch: Fetch): void {
          });
    };
 }
+
+type OAuth1TokenCallback = (
+   err: { statusCode: number; data?: any },
+   token: string,
+   secret: string,
+   parsedQueryString: any
+) => any;
 
 /**
  * Mock the OAuth client imported by `@toba/oauth` by adding an `oauth.ts` to
@@ -66,7 +78,8 @@ export class MockAuth {
    }
 
    /**
-    * Respond to URL request with `mockGetter`.
+    * Respond to URL request with `mockGetter`. Call `useOAuthGetter()` or
+    * `oAuthGetWithFetch()` to assign a custom `get`ter.
     */
    get(
       url: string,
@@ -80,5 +93,53 @@ export class MockAuth {
       if (mockGetter !== null) {
          mockGetter(url, callback);
       }
+   }
+
+   getOAuthAccessToken(
+      requestToken: string,
+      secret: string,
+      verifier: string,
+      callback: OAuth1TokenCallback
+   ): void;
+
+   getOAuthAccessToken(
+      requestToken: string,
+      secret: string,
+      callback: OAuth1TokenCallback
+   ): void;
+
+   getOAuthAccessToken(
+      _requestToken: string,
+      _secret: string,
+      verifierOrCallback: string | OAuth1TokenCallback,
+      callback?: OAuth1TokenCallback
+   ): void {
+      if (is.callable(verifierOrCallback)) {
+         callback = verifierOrCallback;
+      }
+
+      callback(
+         null,
+         'mock-access-token',
+         'mock-access-secret',
+         'mock-query-string'
+      );
+   }
+
+   getOAuthRequestToken(params: any, callback: OAuth1TokenCallback): void;
+   getOAuthRequestToken(callback: OAuth1TokenCallback): void;
+   getOAuthRequestToken(
+      paramsOrCallback: any,
+      callback?: OAuth1TokenCallback
+   ): void {
+      if (!is.callable(callback)) {
+         callback = paramsOrCallback;
+      }
+      callback(
+         null,
+         'mock-request-token',
+         'mock-request-secret',
+         'mock-query-string'
+      );
    }
 }

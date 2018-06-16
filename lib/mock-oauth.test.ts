@@ -1,4 +1,4 @@
-import { MockAuth, useGetter } from './mock-oauth';
+import { MockAuth, useOAuthGetter } from './mock-oauth';
 
 const create = () =>
    new MockAuth(
@@ -34,7 +34,7 @@ test('accepts custom method for mocked file retrieval', () => {
       }
    };
 
-   useGetter(getter);
+   useOAuthGetter(getter);
 
    oauth.get('good', 'accessToken', 'secret', (err: any, body: string) => {
       expect(err).toBeNull();
@@ -45,4 +45,26 @@ test('accepts custom method for mocked file retrieval', () => {
       expect(err).toBe('bad');
       expect(body).toBeNull();
    });
+});
+
+test('retrieves request token', () => {
+   const oauth = create();
+
+   oauth.getOAuthRequestToken((err, token, _secret, _qs) => {
+      expect(err).toBeNull();
+      expect(token).toBe('mock-request-token');
+   });
+});
+
+test('retrieves access token', () => {
+   const oauth = create();
+
+   oauth.getOAuthAccessToken(
+      'request-token',
+      'secret',
+      (err, token, _secret, _qs) => {
+         expect(err).toBeNull();
+         expect(token).toBe('mock-access-token');
+      }
+   );
 });

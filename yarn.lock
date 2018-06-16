@@ -44,7 +44,7 @@
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.0.tgz#50c1e2260ac0ed9439a181de3725a0168d59c48a"
 
-"@toba/build@^1.5.0":
+"@toba/build@^1.7.0":
   version "1.7.2"
   resolved "https://registry.yarnpkg.com/@toba/build/-/build-1.7.2.tgz#bb91e62fde5487005b9fc108eac01427c7b827e5"
   dependencies:
@@ -70,7 +70,7 @@
   dependencies:
     zlib "^1.0.5"
 
-"@types/jest@^23.0.0":
+"@types/jest@^23.1.0":
   version "23.1.0"
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-23.1.0.tgz#8054dd838ba23dc331794d26456b86c7e50bf0f6"
 
