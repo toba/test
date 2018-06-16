@@ -12,6 +12,7 @@ export { MockResponse } from './mock-response';
 export { MockRequest } from './mock-request';
 export { MockExpressApp } from './mock-express';
 export { readFile, readBigFile, loadStream, readFileText } from './file';
+export { MemoryStream } from './memory-stream';
 
 import './helpers';
 

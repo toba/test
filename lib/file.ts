@@ -21,7 +21,7 @@ export const normalizePath = (filePath: string) =>
  */
 export const readBigFile = (filePath: string) =>
    new Promise<string>(resolve => {
-      const input = fs.createReadStream(normalizePath(filePath));
+      const input = loadStream(filePath);
       const output: NodeJS.WritableStream = new Stream.Writable();
       const rl = readline.createInterface(input, output);
       let file = '';
