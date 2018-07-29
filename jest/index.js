@@ -13,6 +13,7 @@ module.exports = {
    transform: {
       '^.+\\.tsx?$': 'ts-jest'
    },
+   testURL: 'http://localhost/',
    setupFiles: ['jest-localstorage-mock'],
    collectCoverage: false,
    collectCoverageFrom: ['lib/**/*.ts', '!lib/**/*.d.ts', '!lib/**/types.ts'],
