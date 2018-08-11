@@ -17,7 +17,7 @@ export const normalizePath = (filePath: string) =>
    /[\\\/]/.test(filePath) ? filePath : localPath(filePath);
 
 /**
- * Technique that supports large text files.
+ * Technique that supports large text files. 
  */
 export const readBigFile = (filePath: string) =>
    new Promise<string>(resolve => {

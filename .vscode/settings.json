@@ -3,5 +3,5 @@
    "spellright.documentTypes": ["markdown", "latex"],
    "eslint.enable": false,
    "jest.enableCodeLens": true,
-   "typescript.tsdk": "node_modules\\typescript\\lib"
+   "typescript.tsdk": "node_modules/typescript/lib"
 }
