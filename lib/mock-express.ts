@@ -28,7 +28,7 @@ interface StackHandler {
    handle: RequestHandler;
 }
 
-interface Middleware extends RequestHandler {
+interface Middleware {
    name: HandlerType;
    /** Internal stack of handlers */
    stack: any[];

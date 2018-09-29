@@ -1,4 +1,4 @@
-import * as jestConfig from './index';
+const JestConfig: jest.ProjectConfig = require('../jest/');
 
 /**
  * Jest uses `<rootDir>` by convention.
@@ -6,8 +6,8 @@ import * as jestConfig from './index';
 const modulePath = '<rootDir>/node_modules/';
 
 test('transforms TypeScript modules and ignores others', () => {
-   expect(jestConfig.transformIgnorePatterns).toBeInstanceOf(Array);
-   const re = new RegExp(jestConfig.transformIgnorePatterns[0]);
+   expect(JestConfig.transformIgnorePatterns).toBeInstanceOf(Array);
+   const re = new RegExp(JestConfig.transformIgnorePatterns[0]);
 
    ['@toba', '@trailimage'].forEach(name => {
       expect(re.test(modulePath + name)).toBe(false);
