@@ -15,7 +15,14 @@ module.exports = {
    },
    testURL: 'http://localhost/',
    collectCoverage: false,
-   collectCoverageFrom: ['lib/**/*.ts', '!lib/**/*.d.ts', '!lib/**/types.ts'],
+   collectCoverageFrom: [
+      'package/**/*.ts',
+      'lib/**/*.ts',
+      '!lib/**/*.d.ts',
+      '!lib/**/types.ts',
+      '!package/**/*.d.ts',
+      '!package/**/types.ts'
+   ],
    coverageReporters: ['lcov'],
    transformIgnorePatterns: [
       `<rootDir>/node_modules/(?!@(${typeScriptModuleScopes.join('|')}))`
