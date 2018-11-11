@@ -26,7 +26,10 @@ test('mocks file retrieval', () => {
 
 test('accepts custom method for mocked file retrieval', () => {
    const oauth = create();
-   const getter = (url: string, fn: (err: any, body: string) => void) => {
+   const getter = (
+      url: string,
+      fn: (err: any, body: string | null) => void
+   ) => {
       if (url == 'good') {
          fn(null, url);
       } else {

@@ -1,5 +1,5 @@
 import { is } from '@toba/tools';
-export type OAuthGetCallback = (err: any, content: string) => void;
+export type OAuthGetCallback = (err: any, content: string | null) => void;
 export type OAuthGet = (url: string, fn: OAuthGetCallback) => void;
 
 /**
@@ -11,7 +11,7 @@ type Fetch = (
    init?: RequestInit | any
 ) => Promise<Response | any>;
 
-let mockGetter: OAuthGet = null;
+let mockGetter: OAuthGet | null = null;
 
 /**
  * Assign URL getter to use in the `OAuth.get()` method. This is more generic
@@ -38,7 +38,7 @@ export function oAuthGetWithFetch(fetch: Fetch): void {
 }
 
 type OAuth1TokenCallback = (
-   err: { statusCode: number; data?: any },
+   err: { statusCode: number; data?: any } | null,
    token: string,
    secret: string,
    parsedQueryString: any
@@ -53,8 +53,8 @@ type OAuth1TokenCallback = (
 export class MockAuth {
    urls: { [key: string]: string };
    last: {
-      accessToken: string;
-      secret: string;
+      accessToken: string | null;
+      secret: string | null;
    };
 
    constructor(
@@ -118,7 +118,7 @@ export class MockAuth {
          callback = verifierOrCallback;
       }
 
-      callback(
+      callback!(
          null,
          'mock-access-token',
          'mock-access-secret',
@@ -135,7 +135,7 @@ export class MockAuth {
       if (!is.callable(callback)) {
          callback = paramsOrCallback;
       }
-      callback(
+      callback!(
          null,
          'mock-request-token',
          'mock-request-secret',
