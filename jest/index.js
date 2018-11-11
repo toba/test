@@ -21,5 +21,6 @@ module.exports = {
       `<rootDir>/node_modules/(?!@(${typeScriptModuleScopes.join('|')}))`
    ],
    testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$',
-   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node']
+   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
+   resolver: require.resolve('jest-pnp-resolver')
 };
