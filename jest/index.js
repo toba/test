@@ -31,6 +31,20 @@ module.exports = {
    transform: {
       '^.+\\.tsx?$': 'ts-jest'
    },
+   globals: {
+      // https://kulshekhar.github.io/ts-jest/user/config/#ts-jest-options
+      'ts-jest': {
+         isolatedModules: true
+         // https://www.typescriptlang.org/docs/handbook/compiler-options.html
+         // tsConfig: {
+         //    importHelpers: false,
+         //    moduleResolution: 'node',
+         //    skipLibCheck: true,
+         //    sourceMap: false,
+         //    target: 'ES2015'
+         // }
+      }
+   },
    testURL: 'http://localhost/',
    collectCoverage: false,
    collectCoverageFrom: [
@@ -41,6 +55,7 @@ module.exports = {
       `!${pkgFolder}/**/*.d.ts`,
       `!${pkgFolder}/**/types.ts`
    ],
+   cache: true,
    coverageReporters: ['lcov'],
    transformIgnorePatterns: [
       `<rootDir>${transformPath}`,
@@ -48,5 +63,4 @@ module.exports = {
    ],
    testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$',
    moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node']
-   //resolver: require.resolve('jest-pnp-resolver')
 };

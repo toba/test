@@ -1,14 +1,3 @@
 {
-   "extends": "./node_modules/@toba/build/ts/lib-config",
-   "compilerOptions": {
-      "moduleResolution": "node",
-      "baseUrl": ".",
-      "paths": {
-         "*": ["node_modules/*", "src/types/*"]
-      },
-      "module": "commonjs",
-      "target": "es6",
-
-      "emitDecoratorMetadata": false
-   }
+   "extends": "./node_modules/@toba/build/ts/lib-config"
 }
