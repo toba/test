@@ -1,7 +1,7 @@
 {
    "name": "@toba/test",
    "description": "Toba Test",
-   "version": "1.21.2",
+   "version": "1.21.3",
    "private": false,
    "publishConfig": {
       "access": "public"
@@ -26,7 +26,6 @@
    "devDependencies": {
       "@toba/build": "^1.7.0",
       "@types/node-fetch": "^2.1.0",
-      "jest-pnp-resolver": "^1.0.1",
       "typescript": "^3.0.0"
    },
    "dependencies": {
@@ -35,6 +34,7 @@
       "@types/jest": "^23.3.0",
       "@types/node": "^10.5.0",
       "jest": "^23.5.0",
+      "jest-pnp-resolver": "^1.0.1",
       "ts-jest": "^23.1.0"
    },
    "repository": {
