@@ -132,7 +132,7 @@ export class MockExpressApp extends EventEmitter {
       return this;
    }
 
-   path(): string {
+   path(): string | null {
       return null;
    }
 
@@ -201,7 +201,7 @@ export class MockExpressApp extends EventEmitter {
    listen(port: number, callback?: Function): Server;
    listen(path: string, callback?: Function): Server;
    listen(handle: any, listeningListener?: Function): Server;
-   listen(_p1: any, _p2: any, _p3?: any, _p4?: any): Server {
+   listen(_p1: any, _p2: any, _p3?: any, _p4?: any): Server | null {
       return null;
    }
    //on: (event: string, callback: (parent: MockExpressApp) => void) => this;

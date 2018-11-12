@@ -24,16 +24,16 @@ export class MockResponse extends ServerResponse {
    endOnRender: boolean;
    app: any;
    ended: boolean;
-   headers: Map<string, string>;
-   content: string;
+   headers: Map<string, string | null>;
+   content: string | null;
    send: any;
    jsonp: any;
    locals: any;
    charset: string;
    rendered: {
-      template: string;
-      context: { [key: string]: any };
-      json: string;
+      template: string | null;
+      context: { [key: string]: any } | null | undefined;
+      json: string | null;
    };
 
    /**
@@ -50,8 +50,8 @@ export class MockResponse extends ServerResponse {
     * Capture redirection values.
     */
    redirected: {
-      status: HttpStatus;
-      url: string;
+      status: HttpStatus | null;
+      url: string | null;
    };
 
    constructor(req: IncomingMessage = new MockRequest()) {
@@ -79,7 +79,10 @@ export class MockResponse extends ServerResponse {
     */
    set(field: any): any;
    set(field: string, value?: string): any;
-   set(keyOrHash: string | { [key: string]: string }, value: string = null) {
+   set(
+      keyOrHash: string | { [key: string]: string },
+      value: string | null = null
+   ) {
       if (is.text(keyOrHash)) {
          this.headers.set(keyOrHash, value);
       } else {
@@ -138,7 +141,7 @@ export class MockResponse extends ServerResponse {
    render(
       template: string,
       context?: { [key: string]: any },
-      callback?: (err: Error, output: string) => void
+      callback?: (err: Error | null, output: string) => void
    ) {
       if (is.value<{ [key: string]: any }>(context)) {
          delete context['config'];
@@ -264,7 +267,7 @@ export class MockResponse extends ServerResponse {
       }
    }
 
-   get(_field: string): string {
+   get(_field: string): string | null {
       return null;
    }
 

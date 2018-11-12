@@ -1,7 +1,7 @@
 {
    "name": "@toba/test",
    "description": "Toba Test",
-   "version": "2.0.3",
+   "version": "2.0.4",
    "private": false,
    "publishConfig": {
       "access": "public"
@@ -25,7 +25,7 @@
    },
    "license": "MIT",
    "devDependencies": {
-      "@toba/build": "^1.8.4",
+      "@toba/build": "^2.0.0",
       "@types/node-fetch": "^2.1.0",
       "typescript": "^3.0.0"
    },

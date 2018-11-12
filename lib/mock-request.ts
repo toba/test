@@ -17,7 +17,7 @@ export class MockSocket extends Socket {
 }
 
 export class MockRequest extends IncomingMessage {
-   referer: string;
+   referer: string | null;
    /** Querystring parameters */
    params: { [key: string]: string };
    headers: { [key: string]: string };
@@ -64,7 +64,7 @@ export class MockRequest extends IncomingMessage {
 
    header(name: 'set-cookie'): string[] | undefined;
    header(name: string): string | undefined;
-   header(name: string | 'set-cookie'): string | string[] {
+   header(name: string | 'set-cookie'): string | string[] | undefined {
       return this.headers[name];
    }
 
@@ -100,7 +100,7 @@ export class MockRequest extends IncomingMessage {
       return null;
    }
 
-   param(_name: string, _defaultValue?: any): string {
+   param(_name: string, _defaultValue?: any): string | null {
       return null;
    }
 
