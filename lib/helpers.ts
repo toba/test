@@ -113,7 +113,7 @@ function toHaveKeys<U, T extends Map<U, any>>(
 
    return makeResponse(
       pass,
-      `Map to have keys ${keys.join(', ')} but found ${setList.join(', ')}`,
+      `Map to have ${keys.length} keys ${keys.join(', ')} but found ${setList.join(', ')}`,
       `Map to not have all keys ${keys.join(', ')}"`
    );
 }
