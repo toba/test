@@ -28,6 +28,7 @@ const transformPath = `/node_modules/(?!@(${typeScriptModuleScopes.join(
  * @type {jest.ProjectConfig}
  */
 module.exports = {
+   automock: false,
    transform: {
       '^.+\\.tsx?$': 'ts-jest'
    },
@@ -46,6 +47,8 @@ module.exports = {
       }
    },
    testURL: 'http://localhost/',
+   setupFiles: ['./jest/setup.ts'],
+   //'./node_modules/@toba/test/jest/setup.js'],
    collectCoverage: false,
    collectCoverageFrom: [
       `${pkgFolder}/**/*.ts`,
