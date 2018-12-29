@@ -4,7 +4,7 @@ import { Encoding } from '@toba/tools';
 /**
  * Mock Fetch response.
  */
-class MockResponse {
+export class MockResponse {
    data: Buffer;
    status: number;
 
