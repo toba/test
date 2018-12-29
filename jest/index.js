@@ -114,7 +114,7 @@ module.exports = {
     * @see https://jestjs.io/docs/en/webpack#mocking-css-modules
     */
    moduleNameMapper: {
-      [match(assetTypes)]: root + 'jest/stub.ts',
-      [match(styleTypes)]: root + 'jest/echo-proxy.ts'
+      [match(assetTypes)]: `<rootDir>${root}jest/stub.ts`,
+      [match(styleTypes)]: `<rootDir>${root}jest/echo-proxy.ts`
    }
 };
