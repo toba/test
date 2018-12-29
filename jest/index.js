@@ -108,7 +108,11 @@ module.exports = {
    ],
    testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$',
    moduleFileExtensions: codeTypes,
-   // https://jestjs.io/docs/en/webpack#mocking-css-modules
+   /**
+    * Allow style and asset `import`s to be recognized but process them with
+    * no-op methods.
+    * @see https://jestjs.io/docs/en/webpack#mocking-css-modules
+    */
    moduleNameMapper: {
       [match(assetTypes)]: root + 'jest/stub.ts',
       [match(styleTypes)]: root + 'jest/echo-proxy.ts'

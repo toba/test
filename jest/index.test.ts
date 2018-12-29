@@ -1,4 +1,4 @@
-const JestConfig: jest.ProjectConfig = require('../jest/');
+import * as JestConfig from './index';
 
 /**
  * Jest uses `<rootDir>` by convention.
@@ -16,4 +16,6 @@ test('transforms TypeScript modules and ignores others', () => {
    ['react', 'jest', 'whatever'].forEach(name => {
       expect(re.test(modulePath + name)).toBe(true);
    });
+
+   expect(Object.keys(JestConfig.moduleNameMapper)).toHaveLength(2);
 });
