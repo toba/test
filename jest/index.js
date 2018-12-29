@@ -6,6 +6,36 @@ const libFolder = 'lib';
  * Mono-repo packages folder.
  */
 const pkgFolder = 'packages';
+
+/**
+ * Normal module file types.
+ */
+const codeTypes = ['ts', 'tsx', 'js', 'jsx', 'json', 'node'];
+/**
+ * CSS style types.
+ */
+const styleTypes = ['css', 'less', 'scss'];
+const assetTypes = [
+   'jpg',
+   'jpeg',
+   'png',
+   'gif',
+   'eot',
+   'otf',
+   'webp',
+   'svg',
+   'ttf',
+   'woff',
+   'woff2',
+   'mp4',
+   'webm',
+   'wav',
+   'mp3',
+   'm4a',
+   'aac',
+   'oga'
+];
+
 /**
  * Modules that are published as TypeScript rather than as transpiled JavaScript
  * must be excluded from the `transformIgnorePatterns` so that they *are*
@@ -29,6 +59,12 @@ const transformPath = `/node_modules/(?!@(${typeScriptModuleScopes.join(
 const root = __dirname.includes('node_modules')
    ? './node_modules/@toba/test/'
    : './';
+
+/**
+ * Create pattern that matches any of the given file types.
+ * @param {string[]} types
+ */
+const match = types => `\\.(${types.join('|')})$`;
 
 /**
  * Default Jest configuration.
@@ -71,5 +107,10 @@ module.exports = {
       `<rootDir>/${pkgFolder}/[-a-z0-9]+${transformPath}`
    ],
    testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$',
-   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node']
+   moduleFileExtensions: codeTypes,
+   // https://jestjs.io/docs/en/webpack#mocking-css-modules
+   moduleNameMapper: {
+      [match(assetTypes)]: root + 'jest/stub.ts',
+      [match(styleTypes)]: root + 'jest/echo-proxy.ts'
+   }
 };
