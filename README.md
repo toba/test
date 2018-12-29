@@ -3,7 +3,7 @@
 ![Code style](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)
 [![Dependencies](https://img.shields.io/david/toba/test.svg)](https://david-dm.org/toba/test)
 [![DevDependencies](https://img.shields.io/david/dev/toba/test.svg)](https://david-dm.org/toba/test#info=devDependencies&view=list)
-[![codecov](https://codecov.io/gh/toba/test/branch/master/graph/badge.svg)](https://codecov.io/gh/toba/test)
+[![Test Coverage](https://codecov.io/gh/toba/test/branch/master/graph/badge.svg)](https://codecov.io/gh/toba/test)
 
 # Usage
 
@@ -12,7 +12,9 @@ yarn add @toba/test --dev
 ```
 
 Add `jest.config.js` to the project root containing
+
 ```
 module.exports = require('@toba/test/jest');
 ```
+
 in order to use the shared Jest configuration.

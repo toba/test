@@ -1,4 +1,3 @@
-import 'jest-fetch-mock';
 import { log } from '@toba/logger';
 // mockFetch must be imported before OAuth since OAuth may utilize a node-fetch mock
 export { mockFetch } from './mock-fetch';
