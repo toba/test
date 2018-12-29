@@ -1,6 +1,10 @@
 import { log } from '@toba/logger';
 // mockFetch must be imported before OAuth since OAuth may utilize a node-fetch mock
-export { mockFetch, MockResponse as MockFetchResponse } from './mock-fetch';
+export {
+   mockFetch,
+   MockResponse as MockFetchResponse,
+   MockFetch
+} from './mock-fetch';
 export {
    MockAuth,
    useOAuthGetter,
@@ -17,6 +21,7 @@ export { MemoryStream } from './memory-stream';
 import './helpers';
 
 import { ExpectResponse } from './helpers';
+import { MockFetch } from './mock-fetch';
 
 // disable color output for tests (messes up tips and console output)
 log.update({ color: false });
@@ -67,6 +72,12 @@ declare global {
           * Expect `MockResponse` to have redirected to a specific URL.
           */
          toRedirectTo: (url: string) => ExpectResponse;
+      }
+
+      namespace NodeJS {
+         interface Global {
+            fetch: GlobalFetch | MockFetch;
+         }
       }
    }
 }
