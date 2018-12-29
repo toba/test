@@ -24,6 +24,13 @@ const transformPath = `/node_modules/(?!@(${typeScriptModuleScopes.join(
 )}))`;
 
 /**
+ * Relative path from Jest working directory.
+ */
+const root = __dirname.includes('node_modules')
+   ? './node_modules/@toba/test/'
+   : './';
+
+/**
  * Default Jest configuration.
  * @type {jest.ProjectConfig}
  */
@@ -47,8 +54,7 @@ module.exports = {
       }
    },
    testURL: 'http://localhost/',
-   setupFiles: ['./jest/setup.ts'],
-   //'./node_modules/@toba/test/jest/setup.js'],
+   setupFiles: [root + 'jest/setup.ts'],
    collectCoverage: false,
    collectCoverageFrom: [
       `${pkgFolder}/**/*.ts`,
