@@ -166,18 +166,6 @@
     tslint-consistent-codestyle "^1.14.0"
     typescript "^3.2.0"
 
-"@toba/logger@^2.0.4":
-  version "2.0.5"
-  resolved "https://registry.yarnpkg.com/@toba/logger/-/logger-2.0.5.tgz#8e196e1e92710873b7b77ed4bb5a53e82764a9ee"
-  integrity sha512-28hO9lS4336R/ryXBmFfRQ+jACSgaRsRov6Sk6fdymuGNzRnvHjYNpW+PfPsPP9IDqM3E8VchaT0hO62j1gLqQ==
-  dependencies:
-    "@toba/tools" "^4.0.0"
-
-"@toba/tools@^4.0.0":
-  version "4.4.1"
-  resolved "https://registry.yarnpkg.com/@toba/tools/-/tools-4.4.1.tgz#85a888b9d7ab7ee882c727e2b10b6be88f70b118"
-  integrity sha512-MLg6WzM7iOl+C7Nr6BD1SZMoucz5vIWNatqcQlN+BQi4gKj9MSMfXG4B8RW/HEfDbxRRCYh9CwZat8fResI4WQ==
-
 "@toba/tools@^5.0.0":
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/@toba/tools/-/tools-5.1.1.tgz#2635af815ee4c6f240ec34a3cffc2f20897a0bf1"

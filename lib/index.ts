@@ -1,4 +1,3 @@
-import { log } from '@toba/logger';
 // mockFetch must be imported before OAuth since OAuth may utilize a node-fetch mock
 export {
    mockFetch,
@@ -22,9 +21,6 @@ import './helpers';
 
 import { ExpectResponse } from './helpers';
 import { MockFetch } from './mock-fetch';
-
-// disable color output for tests (messes up tips and console output)
-log.update({ color: false });
 
 /** http://www.lipsum.com/ */
 export const lipsum =

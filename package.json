@@ -1,7 +1,7 @@
 {
    "name": "@toba/test",
    "description": "Toba Test",
-   "version": "2.3.2",
+   "version": "2.3.3",
    "private": false,
    "publishConfig": {
       "access": "public"
@@ -29,7 +29,6 @@
       "@types/node-fetch": "^2.1.0"
    },
    "dependencies": {
-      "@toba/logger": "^2.0.4",
       "@toba/tools": "^5.0.0",
       "@types/jest": "^23.3.0",
       "jest": "^23.5.0",
