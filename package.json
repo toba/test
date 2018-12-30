@@ -1,7 +1,7 @@
 {
    "name": "@toba/test",
    "description": "Toba Test",
-   "version": "2.2.1",
+   "version": "2.3.0",
    "private": false,
    "publishConfig": {
       "access": "public"
@@ -24,12 +24,12 @@
    },
    "license": "MIT",
    "devDependencies": {
-      "@toba/develop": "^2.0.0",
+      "@toba/develop": "^4.0.0",
       "@types/node-fetch": "^2.1.0"
    },
    "dependencies": {
       "@toba/logger": "^2.0.4",
-      "@toba/tools": "^4.0.0",
+      "@toba/tools": "^5.0.0",
       "@types/jest": "^23.3.0",
       "@types/node": "^10.5.0",
       "jest": "^23.5.0",
@@ -39,10 +39,6 @@
    "repository": {
       "type": "git",
       "url": "https://github.com/toba/test"
-   },
-   "prettier": {
-      "singleQuote": true,
-      "tabWidth": 3
    },
    "bugs": {
       "url": "https://github.com/toba/test/issues"

@@ -151,11 +151,12 @@
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
   integrity sha512-shAmDyaQC4H92APFoIaVDHCx5bStIocgvbwQyxPRrbUY20V1EYTbSDchWbuwlMG3V17cprZhA6+78JfB+3DTPw==
 
-"@toba/develop@^2.0.0":
-  version "2.1.5"
-  resolved "https://registry.yarnpkg.com/@toba/develop/-/develop-2.1.5.tgz#450f234646084d52c6bf2a0d61e5954f13455191"
-  integrity sha512-hbVcHmjezs4DMZJRanJshV/ut/JuTXU11QTbR4WXe1wXXUg7OA2LzzrqRHGjxPsvaJzY0bmqBaSycqCIj3EmHQ==
+"@toba/develop@^4.0.0":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@toba/develop/-/develop-4.0.1.tgz#258c29d0c86ff4337dfe876f74b8aea7b3d483ee"
+  integrity sha512-P6XTqI4cub3sTl4Bge4j3qDklNplNfKxy9pLPsAPwtmUr68e7axGjPfjaCrAdsDEDzguxVwduJdcpt6mMkn8rA==
   dependencies:
+    "@types/prettier" "^1.15.2"
     prettier "^1.15.0"
     stylelint "^9.9.0"
     stylelint-config-standard "^18.2.0"
@@ -177,6 +178,11 @@
   resolved "https://registry.yarnpkg.com/@toba/tools/-/tools-4.3.0.tgz#1503484c45fa1631d3bd02637ad06fd651b475f8"
   integrity sha512-ywTPD3l8JmlvMpwE6MWyhlI+vvMJGgPWXNduz287ZYltxCA1qRyMzjWJiASlQcyZOwft49/TefeFrCxE7tkZVw==
 
+"@toba/tools@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@toba/tools/-/tools-5.0.0.tgz#bb681c4b384bd29fd2f6f3146a5f705f68b01f2f"
+  integrity sha512-sPVuOS4hVgrF0GYsCUtZ5V4iDZd1t4ZgNXyWinMhBM6LuJjm/Rf6nbWYFf0EX1SsI5wDROXWXNsotqYJJNzwug==
+
 "@types/jest@^23.3.0":
   version "23.3.10"
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-23.3.10.tgz#4897974cc317bf99d4fe6af1efa15957fa9c94de"
@@ -193,6 +199,11 @@
   version "10.12.18"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.12.18.tgz#1d3ca764718915584fcd9f6344621b7672665c67"
   integrity sha512-fh+pAqt4xRzPfqA6eh3Z2y6fyZavRIumvjhaCL753+TVkGKGhpPeyrJG2JftD0T9q4GF00KjefsQ+PQNDdWQaQ==
+
+"@types/prettier@^1.15.2":
+  version "1.15.2"
+  resolved "https://registry.yarnpkg.com/@types/prettier/-/prettier-1.15.2.tgz#91594ea7cb6f3b1f7ea69f32621246654c7cc231"
+  integrity sha512-XIB0ZCaFZmWUHAa9dBqP5UKXXHwuukmVlP+XcyU94dui2k+l2lG+CHAbt2ffenHPUqoIs5Beh8Pdf2YEq/CZ7A==
 
 abab@^2.0.0:
   version "2.0.0"
