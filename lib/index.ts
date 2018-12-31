@@ -1,9 +1,5 @@
 // mockFetch must be imported before OAuth since OAuth may utilize a node-fetch mock
-export {
-   mockFetch,
-   MockResponse as MockFetchResponse,
-   MockFetch
-} from './mock-fetch';
+export { loadFileForFetch, mockFetch, MockFetch } from './mock-fetch';
 export {
    MockAuth,
    useOAuthGetter,

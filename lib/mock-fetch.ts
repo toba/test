@@ -27,21 +27,35 @@ export type MockFetch = (
 ) => Promise<MockResponse>;
 
 /**
- * Mock `fetch` to return local files instead of remote resources.
+ * Respond to URL by loading local file per mapping function.
+ */
+export const loadFileForFetch = (
+   mapUrlToFile: (url: string | Request) => string
+): MockFetch => (
+   url: string | Request,
+   _init?: RequestInit
+): Promise<MockResponse> =>
+   new Promise((resolve, reject) => {
+      const fileName = mapUrlToFile(url);
+
+      fs.readFile(fileName, (err, data) => {
+         if (err === null) {
+            resolve(new MockResponse(data));
+         } else {
+            reject(err);
+         }
+      });
+   });
+
+/**
+ * Mock `window.fetch` so it loads a local file per the given mapping and
+ * return the mock function for inspection.
  */
 export function mockFetch(
-   localPath: (url: string | Request) => string
-): MockFetch {
-   return (url: string | Request, _init?: RequestInit): Promise<MockResponse> =>
-      new Promise((resolve, reject) => {
-         const fileName = localPath(url);
-
-         fs.readFile(fileName, (err, data) => {
-            if (err === null) {
-               resolve(new MockResponse(data));
-            } else {
-               reject(err);
-            }
-         });
-      });
+   mapUrlToFile: (url: string | Request) => string
+): jest.Mock<Promise<MockResponse>> {
+   const fetch = jest.fn<Promise<MockResponse>>();
+   fetch.mockImplementation(loadFileForFetch(mapUrlToFile));
+   window.fetch = fetch;
+   return fetch;
 }

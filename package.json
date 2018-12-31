@@ -1,7 +1,7 @@
 {
    "name": "@toba/test",
    "description": "Toba Test",
-   "version": "2.3.3",
+   "version": "3.0.0",
    "private": false,
    "publishConfig": {
       "access": "public"
@@ -38,9 +38,6 @@
    "repository": {
       "type": "git",
       "url": "https://github.com/toba/test"
-   },
-   "bugs": {
-      "url": "https://github.com/toba/test/issues"
    },
    "installConfig": {
       "pnp": false
