@@ -1,8 +1,8 @@
 import { HttpStatus } from '@toba/tools';
-import { mockFetch } from './index';
+import { loadFileForFetch } from './index';
 
 test('mocks fetch to read local file', async () => {
-   const fetch = mockFetch(_url => `${__dirname}/../README.md`);
+   const fetch = loadFileForFetch(_url => `${__dirname}/../README.md`);
 
    const res = await fetch('url');
    expect(res).toBeDefined();
@@ -14,5 +14,5 @@ test('mocks fetch to read local file', async () => {
 
    const data = await res.buffer();
    expect(data).toBeDefined();
-   expect(data.length).toBeWithin(800, 900);
+   expect(data.length).toBeWithin(900, 1000);
 });

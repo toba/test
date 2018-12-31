@@ -18,3 +18,10 @@ module.exports = require('@toba/test/jest');
 ```
 
 in order to use the shared Jest configuration.
+
+## License
+
+Copyright &copy; 2019 Jason Abbott
+
+This software is licensed under the MIT license. See the [LICENSE](./LICENSE) file
+accompanying this software for terms of use.
