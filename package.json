@@ -1,16 +1,15 @@
 {
    "name": "@toba/test",
    "description": "Toba Test",
-   "version": "3.0.1",
+   "version": "3.0.2",
    "private": false,
    "publishConfig": {
       "access": "public"
    },
-   "main": "lib/index.ts",
+   "main": "src/index.ts",
    "files": [
-      "lib/**/!(*.test).ts",
-      "jest",
-      "js"
+      "src/**/!(*.test).ts",
+      "jest"
    ],
    "engines": {
       "node": ">=10.0.0"
@@ -19,7 +18,7 @@
       "name": "Jason Abbott"
    },
    "scripts": {
-      "prepublishOnly": "./node_modules/.bin/tsc",
+      "prepublishOnly": "./node_modules/.bin/tsc --project tsconfig.build.json",
       "test": "jest --coverage"
    },
    "license": "MIT",
