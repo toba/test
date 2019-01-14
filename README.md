@@ -5,6 +5,8 @@
 [![DevDependencies](https://img.shields.io/david/dev/toba/test.svg)](https://david-dm.org/toba/test#info=devDependencies&view=list)
 [![Test Coverage](https://codecov.io/gh/toba/test/branch/master/graph/badge.svg)](https://codecov.io/gh/toba/test)
 
+<img src='https://toba.github.io/about/images/logo-colored.svg' width="100" align="right"/>
+
 # Usage
 
 ```

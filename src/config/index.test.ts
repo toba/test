@@ -1,3 +1,4 @@
+import './index';
 import * as config from './index';
 
 /**

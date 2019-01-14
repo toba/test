@@ -1,4 +1,4 @@
-import '../jest/';
+import './index';
 import echo from './echo-proxy';
 
 test('something', () => {

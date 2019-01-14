@@ -14,7 +14,7 @@
          "problemMatcher": []
       },
       {
-         "label": "Build",
+         "label": "Build Helpers",
          "command": "./node_modules/.bin/tsc",
          "args": ["--project", "tsconfig.build.json"],
          "type": "shell",
@@ -22,7 +22,7 @@
          "problemMatcher": ["$tsc"]
       },
       {
-         "label": "Build Jest",
+         "label": "Build Config",
          "command": "./node_modules/.bin/tsc",
          "args": ["--project", "./src/config/tsconfig.json"],
          "type": "shell",

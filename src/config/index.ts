@@ -126,4 +126,4 @@ const config: Partial<jest.DefaultOptions> = {
    }
 };
 
-export default config;
+export = config;

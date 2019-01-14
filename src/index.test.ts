@@ -1,5 +1,5 @@
 import { lipsum, sleep } from './index';
-const JestConfig: jest.ProjectConfig = require('../jest/');
+import * as config from './config';
 
 test('helpers are defined', () => {
    expect(lipsum).toBeDefined();
@@ -7,11 +7,11 @@ test('helpers are defined', () => {
 });
 
 test('common Jest configuration', () => {
-   expect(JestConfig).toBeDefined();
+   expect(config).toBeDefined();
    // enabling coverage breaks VSCode debugging
    // intead use --coverage when running
-   expect(JestConfig).toHaveProperty('collectCoverage', false);
-   expect(JestConfig).toHaveProperty('coverageReporters');
+   expect(config).toHaveProperty('collectCoverage', false);
+   expect(config).toHaveProperty('coverageReporters');
 });
 
 test('sleep', async () => {
