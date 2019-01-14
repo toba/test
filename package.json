@@ -1,14 +1,15 @@
 {
    "name": "@toba/test",
    "description": "Toba Test",
-   "version": "3.0.2",
+   "version": "3.1.0",
    "private": false,
    "publishConfig": {
       "access": "public"
    },
-   "main": "src/index.ts",
+   "main": "dist/index.js",
+   "types": "dist/index.d.ts",
    "files": [
-      "src/**/!(*.test).ts",
+      "dist",
       "jest"
    ],
    "engines": {
@@ -18,7 +19,9 @@
       "name": "Jason Abbott"
    },
    "scripts": {
-      "prepublishOnly": "./node_modules/.bin/tsc --project tsconfig.build.json",
+      "prepublishOnly": "npm run build & npm run buildJest",
+      "build": "./node_modules/.bin/tsc --project tsconfig.build.json",
+      "buidJest": "./node_modules/.bin/tsc --project ./src/config/tsconfig.json",
       "test": "jest --coverage"
    },
    "license": "MIT",

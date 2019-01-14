@@ -62,15 +62,13 @@ const root = __dirname.includes('node_modules')
 
 /**
  * Create pattern that matches any of the given file types.
- * @param {string[]} types
  */
-const match = types => `\\.(${types.join('|')})$`;
+const match = (types: string[]) => `\\.(${types.join('|')})$`;
 
 /**
  * Default Jest configuration.
- * @type {jest.ProjectConfig}
  */
-module.exports = {
+const config: Partial<jest.DefaultOptions> = {
    automock: false,
    /**
     * ts-jest transform matches both TypeScript and JavaScript files since TS
@@ -99,7 +97,7 @@ module.exports = {
       }
    },
    testURL: 'http://localhost/',
-   setupFiles: [root + 'jest/setup.ts'],
+   setupFiles: [root + 'jest/setup.js'],
    collectCoverage: false,
    collectCoverageFrom: [
       `${pkgFolder}/**/*.ts`,
@@ -123,7 +121,9 @@ module.exports = {
     * @see https://jestjs.io/docs/en/webpack#mocking-css-modules
     */
    moduleNameMapper: {
-      [match(assetTypes)]: `<rootDir>${root}jest/stub.ts`,
-      [match(styleTypes)]: `<rootDir>${root}jest/echo-proxy.ts`
+      [match(assetTypes)]: `<rootDir>${root}jest/stub.js`,
+      [match(styleTypes)]: `<rootDir>${root}jest/echo-proxy.js`
    }
 };
+
+export default config;

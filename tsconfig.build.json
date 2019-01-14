@@ -1,3 +1,5 @@
 {
-   "extends": "@toba/develop/tsconfig"
+   "extends": "@toba/develop/tsconfig",
+   // config files are built separately
+   "exclude": ["./node_modules", "./src/config"]
 }

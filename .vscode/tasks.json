@@ -22,6 +22,14 @@
          "problemMatcher": ["$tsc"]
       },
       {
+         "label": "Build Jest",
+         "command": "./node_modules/.bin/tsc",
+         "args": ["--project", "./src/config/tsconfig.json"],
+         "type": "shell",
+         "group": "build",
+         "problemMatcher": ["$tsc"]
+      },
+      {
          "label": "Publish",
          "command": "npm",
          "args": ["publish"],

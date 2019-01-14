@@ -1,0 +1,6 @@
+{
+   "extends": "@toba/develop/tsconfig",
+   "compilerOptions": { "outDir": "../../jest" },
+   "include": ["./"],
+   "exclude": ["../../node_modules", "./*.test.ts"]
+}
