@@ -1,7 +1,7 @@
 /**
  * Published library source code folder.
  */
-const libFolder = 'lib';
+const libFolder = 'src';
 /**
  * Mono-repo packages folder.
  */
