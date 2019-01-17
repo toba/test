@@ -3,6 +3,12 @@
    "compilerOptions": {
       "typeRoots": ["./node_modules/@types", "./types/"]
    },
-   // config files are built separately
-   "exclude": ["./node_modules", "./src/config", ""]
+   // config and script files are built separately
+   "exclude": [
+      "./node_modules",
+      "./src/config",
+      "./src/scripts",
+      "./dist",
+      "./src/*.test.ts"
+   ]
 }

@@ -1,7 +1,7 @@
 {
    "name": "@toba/test",
    "description": "Toba Test",
-   "version": "3.3.0",
+   "version": "3.4.0",
    "private": false,
    "publishConfig": {
       "access": "public"
@@ -10,7 +10,8 @@
    "types": "dist/index.d.ts",
    "files": [
       "dist",
-      "jest"
+      "jest",
+      "scripts"
    ],
    "engines": {
       "node": ">=10.0.0"
@@ -19,10 +20,12 @@
       "name": "Jason Abbott"
    },
    "scripts": {
-      "prepublishOnly": "npm run build & npm run buildJest",
+      "prepublishOnly": "npm run build & npm run buildJest & npm run buildScripts",
       "build": "./node_modules/.bin/tsc --project tsconfig.build.json",
       "buildJest": "./node_modules/.bin/tsc --project ./src/config/tsconfig.json",
-      "test": "jest --coverage"
+      "buildScripts": "./node_modules/.bin/tsc --project ./src/scripts/tsconfig.json",
+      "test": "jest --coverage",
+      "postinstall": "node ./scripts/patch-rn-jest.js"
    },
    "license": "MIT",
    "devDependencies": {
