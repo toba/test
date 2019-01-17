@@ -1,7 +1,7 @@
 node_modules/
 coverage/
 dist/
-jest/ 
-scripts/
+/jest 
+/scripts
 yarn-error.log
 .pnp*
