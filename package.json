@@ -1,7 +1,7 @@
 {
    "name": "@toba/test",
    "description": "Toba Test",
-   "version": "3.4.1",
+   "version": "3.4.2",
    "private": false,
    "publishConfig": {
       "access": "public"
@@ -34,10 +34,10 @@
       "@types/node-fetch": "^2.1.0"
    },
    "dependencies": {
-      "@toba/tools": "^5.0.0",
+      "@toba/tools": "^6.0.0",
       "@types/jest": "^23.3.0",
       "fake-indexeddb": "^2.0.4",
-      "jest": "^23.5.0",
+      "jest": "^24.0.0",
       "jest-date-mock": "^1.0.6",
       "ts-jest": "^23.10.4"
    },
