@@ -25,7 +25,7 @@
       "buildJest": "./node_modules/.bin/tsc --project ./src/config/tsconfig.json",
       "buildScripts": "./node_modules/.bin/tsc --project ./src/scripts/tsconfig.json",
       "test": "jest --coverage",
-      "postinstall": "npm run buildScripts & node ./scripts/patch-rn-jest.js"
+      "postinstall": "npm run buildScripts && node ./scripts/patch-rn-jest.js"
    },
    "license": "MIT",
    "devDependencies": {
