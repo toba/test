@@ -1,4 +1,4 @@
-import * as baseConfig from './';
+import { default as baseConfig } from './';
 
 /**
  * Configuration for testing React Native components depends on `react-native`
