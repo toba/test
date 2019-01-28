@@ -1,1 +1,2 @@
-module.exports = require('./jest');
+const config = require('./jest');
+module.exports = config.default;

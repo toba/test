@@ -1,3 +1,6 @@
+/**
+ * @see https://github.com/facebook/jest/issues/6229
+ */
 module.exports = {
    plugins: ['@babel/plugin-proposal-class-properties'],
    presets: [
