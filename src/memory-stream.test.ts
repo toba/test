@@ -7,9 +7,9 @@ test('recieves stream', done => {
    expect(stream.writeWasCalled).toBe(false);
    expect(stream.receivedData).toBe(false);
 
-   loadStream('helpers.ts')
+   loadStream('./LICENSE')
       .on('end', () => {
-         expect(stream.text.includes('ExpectResponse')).toBe(true);
+         expect(stream.text.includes('Copyright')).toBe(true);
          expect(stream.writeWasCalled).toBe(true);
          expect(stream.receivedData).toBe(true);
          done();

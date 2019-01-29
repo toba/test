@@ -69,8 +69,11 @@ const match = (types: string[]) => `\\.(${types.join('|')})$`;
  * Default Jest configuration.
  */
 module.exports = {
+   // Custom transformer is actually the default Babel transformer, changed only
+   // to use internal Babel configuration instead of requiring every project to
+   // have a babel.config.js file.
    transform: {
-      '^.+\\.[jt]sx?$': './transformer.js'
+      '^.+\\.[jt]sx?$': `<rootDir>${root}jest/transformers.js`
    },
    automock: false,
    testURL: 'http://localhost/',
