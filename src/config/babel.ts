@@ -1,7 +1,10 @@
 export const config = {
    plugins: [
       '@babel/plugin-proposal-class-properties',
-      '@babel/plugin-syntax-dynamic-import'
+      // needed to allow dynamic import() syntax
+      '@babel/plugin-syntax-dynamic-import',
+      // needed to mock dynamic imports for Node (Jest) execution
+      'dynamic-import-node'
    ],
    presets: [
       [
