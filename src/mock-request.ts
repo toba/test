@@ -119,7 +119,10 @@ export class MockRequest extends IncomingMessage {
       this.params = {};
       this.headers = {};
       this.query = {};
-      this.connection.reset();
+
+      if (this.connection) {
+         this.connection.reset();
+      }
       this.body = { selected: [] };
       return this;
    }
