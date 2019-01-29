@@ -69,6 +69,9 @@ const match = (types: string[]) => `\\.(${types.join('|')})$`;
  * Default Jest configuration.
  */
 module.exports = {
+   transform: {
+      '^.+\\.[jt]sx?$': './transformer.js'
+   },
    automock: false,
    testURL: 'http://localhost/',
    setupFiles: [root + 'jest/setup.js'],

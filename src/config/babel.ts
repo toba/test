@@ -1,4 +1,4 @@
-module.exports = {
+export const config = {
    plugins: ['@babel/plugin-proposal-class-properties'],
    presets: [
       [
