@@ -1,7 +1,7 @@
 {
    "name": "@toba/test",
    "description": "Toba Test",
-   "version": "3.5.2",
+   "version": "3.5.3",
    "private": false,
    "publishConfig": {
       "access": "public"
@@ -11,6 +11,7 @@
    "files": [
       "dist",
       "jest",
+      "babel",
       "scripts"
    ],
    "engines": {
