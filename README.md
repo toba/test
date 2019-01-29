@@ -9,20 +9,15 @@
 
 # Usage
 
-```
+```sh
 yarn add @toba/test --dev
 ```
 
 Add `jest.config.js` to the project root containing
 
-```
+```js
 module.exports = require('@toba/test/jest');
 ```
-and `babel.config.js` to the root containing
-```
-module.exports = require('@toba/test/babel');
-```
-
 
 in order to use the shared Jest configuration.
 
