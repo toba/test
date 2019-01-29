@@ -1,1 +1,1 @@
-module.exports = require('./jest/babel');
+module.exports = require('./babel');

@@ -18,6 +18,11 @@ Add `jest.config.js` to the project root containing
 ```
 module.exports = require('@toba/test/jest');
 ```
+and `babel.config.js` to the root containing
+```
+module.exports = require('@toba/test/babel');
+```
+
 
 in order to use the shared Jest configuration.
 
