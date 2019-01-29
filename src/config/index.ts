@@ -70,32 +70,6 @@ const match = (types: string[]) => `\\.(${types.join('|')})$`;
  */
 export default {
    automock: false,
-   /**
-    * ts-jest transform matches both TypeScript and JavaScript files since TS
-    * may import transpiled ES6.
-    */
-   // transform: {
-   //    '^.+\\.[jt]sx?$': 'ts-jest'
-   // },
-   // globals: {
-   //    // https://kulshekhar.github.io/ts-jest/user/config/#ts-jest-options
-   //    'ts-jest': {
-   //       isolatedModules: true,
-   //       // https://kulshekhar.github.io/ts-jest/user/config/diagnostics
-   //       diagnostics: {
-   //          ignoreCodes: [2571, 6031, 18003, 151001]
-   //       },
-   //       /**
-   //        * Override ambient configuration to allow JavaScript imports (see
-   //        * above).
-   //        * @see https://www.typescriptlang.org/docs/handbook/compiler-options.html
-   //        */
-   //       tsConfig: {
-   //          allowJs: true,
-   //          declaration: false
-   //       }
-   //    }
-   // },
    testURL: 'http://localhost/',
    setupFiles: [root + 'jest/setup.js'],
    collectCoverage: false,

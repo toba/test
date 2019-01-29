@@ -1,5 +1,5 @@
 import './index';
-import * as config from './index';
+import { default as config } from './index';
 
 /**
  * Jest uses `<rootDir>` by convention.
