@@ -1,5 +1,5 @@
 import './index';
-import { default as config } from './index';
+const config: Partial<jest.DefaultOptions> = require('./index');
 
 /**
  * Jest uses `<rootDir>` by convention.

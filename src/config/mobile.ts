@@ -1,4 +1,4 @@
-import { default as baseConfig } from './';
+const baseConfig: Partial<jest.DefaultOptions> = require('./');
 
 /**
  * Configuration for testing React Native components depends on `react-native`
@@ -13,4 +13,4 @@ const config: Partial<jest.DefaultOptions> = {
    ]
 };
 
-export = config;
+module.exports = config;

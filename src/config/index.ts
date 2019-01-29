@@ -68,7 +68,7 @@ const match = (types: string[]) => `\\.(${types.join('|')})$`;
 /**
  * Default Jest configuration.
  */
-export default {
+module.exports = {
    automock: false,
    testURL: 'http://localhost/',
    setupFiles: [root + 'jest/setup.js'],
