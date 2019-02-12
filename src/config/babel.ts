@@ -1,5 +1,7 @@
 export const config = {
    plugins: [
+      // https://babeljs.io/docs/en/babel-plugin-transform-react-jsx
+      '@babel/plugin-transform-react-jsx',
       '@babel/plugin-proposal-class-properties',
       // needed to allow dynamic import() syntax
       '@babel/plugin-syntax-dynamic-import',
