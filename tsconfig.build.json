@@ -8,7 +8,7 @@
       "./node_modules",
       "./src/config",
       "./src/scripts",
-      "./dist",
+      "./cjs",
       "./src/*.test.ts"
    ]
 }
