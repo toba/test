@@ -54,7 +54,7 @@ export const loadFileForFetch = (
 export function mockFetch(
    mapUrlToFile: (url: string | Request) => string
 ): jest.Mock<Promise<MockResponse>> {
-   const fetch = jest.fn<Promise<MockResponse>>();
+   const fetch = jest.fn();
    fetch.mockImplementation(loadFileForFetch(mapUrlToFile));
    window.fetch = fetch;
    return fetch;

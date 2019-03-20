@@ -1,8 +1,7 @@
 {
-   "extends": "@toba/develop/tsconfig.dev",
+   "extends": "@toba/develop/tsconfig.cjs",
    "compilerOptions": {
       "outDir": "../../scripts",
-      "typeRoots": ["../../node_modules/@types", "../../types/"],
       "declaration": false,
       "allowJs": true
    },

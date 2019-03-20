@@ -1,8 +1,7 @@
 {
-   "extends": "@toba/develop/tsconfig.dev",
+   "extends": "@toba/develop/tsconfig.cjs",
    "compilerOptions": {
-      "outDir": "../../jest",
-      "typeRoots": ["../../node_modules/@types", "../../types/"]
+      "outDir": "../../jest"
    },
    "include": ["./"],
    "exclude": ["../../node_modules", "./*.test.ts", "../../dist"]

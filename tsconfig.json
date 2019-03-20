@@ -1,6 +1,3 @@
 {
-   "extends": "@toba/develop/tsconfig.dev",
-   "compilerOptions": {
-      "typeRoots": ["./node_modules/@types", "./types/"] 
-   }
+   "extends": "@toba/develop/tsconfig.cjs"
 }
