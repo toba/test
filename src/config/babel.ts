@@ -12,9 +12,10 @@ export const config = {
       [
          '@babel/preset-env',
          {
-            targets: {
-               node: 'current'
-            }
+            useBuiltIns: 'usage',
+            // https://github.com/zloirock/core-js/blob/master/docs/2019-03-19-core-js-3-babel-and-a-look-into-the-future.md#babelpreset-env
+            corejs: 3,
+            targets: { node: 'current' }
          }
       ],
       '@babel/preset-typescript'
