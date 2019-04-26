@@ -1,7 +1,7 @@
 {
    "name": "@toba/test",
    "description": "Toba Test",
-   "version": "3.7.5",
+   "version": "3.7.6",
    "private": false,
    "publishConfig": {
       "access": "public"
@@ -44,6 +44,7 @@
       "@toba/tools": "^6.0.0",
       "@types/jest": "^24.0.0",
       "babel-plugin-dynamic-import-node": "^2.2.0",
+      "core-js": "^3.0.1",
       "fake-indexeddb": "^2.0.4",
       "jest": "^24.0.0",
       "jest-date-mock": "^1.0.6"
