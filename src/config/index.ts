@@ -45,6 +45,7 @@ const assetTypes = [
  * @see https://github.com/kulshekhar/ts-jest/issues/439
  */
 const typeScriptModuleScopes = ['toba', 'trailimage'];
+
 /**
  * Path that should *not* be transformed is everything except TypeScript or ES6
  * module paths which *should* be transformed for tests.

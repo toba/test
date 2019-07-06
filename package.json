@@ -1,7 +1,7 @@
 {
    "name": "@toba/test",
    "description": "Toba Test",
-   "version": "3.7.6",
+   "version": "3.7.8",
    "private": false,
    "publishConfig": {
       "access": "public"
@@ -20,18 +20,16 @@
       "name": "Jason Abbott"
    },
    "scripts": {
-      "prepublishOnly": "npm run build & npm run buildJest & npm run buildScripts",
+      "prepublishOnly": "npm run build & npm run buildJest",
       "build": "./node_modules/.bin/tsc --project tsconfig.build.json",
       "buildJest": "./node_modules/.bin/tsc --project ./src/config/tsconfig.json",
-      "buildScripts": "./node_modules/.bin/tsc --project ./src/scripts/tsconfig.json",
-      "test": "./node_modules/.bin/jest --coverage",
-      "//postinstall": "npm run buildScripts && node ./scripts/patch-rn-jest.js"
+      "test": "./node_modules/.bin/jest --coverage"
    },
    "license": "MIT",
    "devDependencies": {
-      "@toba/develop": "^6.5.0",
+      "@toba/develop": "^6.5.3",
       "@types/babel-core": "^6.25.5",
-      "@types/node": "^11.13.10",
+      "@types/node": "^12.0.0",
       "@types/node-fetch": "^2.3.7"
    },
    "dependencies": {
@@ -41,7 +39,7 @@
       "@babel/plugin-transform-react-jsx": "^7.3.0",
       "@babel/preset-env": "^7.5.0",
       "@babel/preset-typescript": "^7.1.0",
-      "@toba/tools": "^6.5.1",
+      "@toba/tools": "^6.6.2",
       "@types/jest": "^24.0.12",
       "babel-plugin-dynamic-import-node": "^2.3.0",
       "core-js": "^3.1.4",

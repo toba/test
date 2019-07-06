@@ -260,7 +260,7 @@ export class MockResponse extends ServerResponse {
     */
    header(field: string, value: string): any;
    header(field: string, value?: string): any {
-      if (is.value(value)) {
+      if (is.value<string>(value)) {
          this.headers.set(field, value);
       } else {
          return this.headers.get(field);
