@@ -1,7 +1,7 @@
 {
    "name": "@toba/test",
    "description": "Toba Test",
-   "version": "3.7.8",
+   "version": "3.8.0",
    "private": false,
    "publishConfig": {
       "access": "public"
@@ -23,7 +23,7 @@
       "prepublishOnly": "npm run build & npm run buildJest",
       "build": "./node_modules/.bin/tsc --project tsconfig.build.json",
       "buildJest": "./node_modules/.bin/tsc --project ./src/config/tsconfig.json",
-      "test": "./node_modules/.bin/jest --coverage"
+      "test": "./node_mod ules/.bin/jest --coverage"
    },
    "license": "MIT",
    "devDependencies": {

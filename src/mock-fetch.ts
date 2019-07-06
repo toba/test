@@ -1,5 +1,5 @@
 import * as fs from 'fs';
-import { Encoding } from '@toba/tools';
+import { Encoding, HttpStatus } from '@toba/tools';
 
 /**
  * Mock Fetch response.
@@ -12,8 +12,17 @@ export class MockResponse {
       this.data = data;
       this.status = status;
    }
+
+   get ok() {
+      return this.status == HttpStatus.OK;
+   }
+
    text(): Promise<string> {
       return Promise.resolve(this.data.toString(Encoding.UTF8));
+   }
+
+   json(): Promise<any> {
+      return this.text().then(text => JSON.parse(text));
    }
 
    buffer(): Promise<Buffer> {
