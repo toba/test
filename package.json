@@ -23,7 +23,7 @@
       "prepublishOnly": "npm run build & npm run buildJest",
       "build": "./node_modules/.bin/tsc --project tsconfig.build.json",
       "buildJest": "./node_modules/.bin/tsc --project ./src/config/tsconfig.json",
-      "test": "./node_modules/.bin/jest --coverage"
+      "test": "jest --coverage"
    },
    "license": "MIT",
    "devDependencies": {
