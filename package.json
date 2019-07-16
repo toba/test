@@ -1,7 +1,7 @@
 {
    "name": "@toba/test",
    "description": "Toba Test",
-   "version": "3.8.3",
+   "version": "3.8.4",
    "private": false,
    "publishConfig": {
       "access": "public"
@@ -10,8 +10,7 @@
    "types": "cjs/index.d.ts",
    "files": [
       "cjs",
-      "jest",
-      "scripts"
+      "jest"
    ],
    "engines": {
       "node": ">=12.0.0"
