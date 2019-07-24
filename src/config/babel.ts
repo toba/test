@@ -6,7 +6,15 @@ export const config = {
       // needed to allow dynamic import() syntax
       '@babel/plugin-syntax-dynamic-import',
       // needed to mock dynamic imports for Node (Jest) execution
-      'dynamic-import-node'
+      'dynamic-import-node',
+      // https://github.com/dosentmatter/babel-plugin-const-enum
+      [
+         'const-enum',
+         {
+            // converts enum to a regular object for sake of testing
+            transform: 'constObject'
+         }
+      ]
    ],
    presets: [
       [
