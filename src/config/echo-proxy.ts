@@ -1,4 +1,4 @@
-export default new Proxy<{}>(
+export default new Proxy<{ [key: string]: string }>(
    {},
    {
       get: (_target, key): string | boolean =>
