@@ -4,6 +4,7 @@ import { loadFileForFetch, mockFetch } from './index';
 
 test('allows mock fetch to be defined', () => {
    mockFetch(url => path.join(__dirname, url.toString()));
+   expect(fetch).toBeDefined();
 });
 
 test('mocks fetch to read local file', async () => {
