@@ -1,5 +1,10 @@
+import path from 'path';
 import { HttpStatus } from '@toba/tools';
-import { loadFileForFetch } from './index';
+import { loadFileForFetch, mockFetch } from './index';
+
+test('allows mock fetch to be defined', () => {
+   mockFetch(url => path.join(__dirname, url.toString()));
+});
 
 test('mocks fetch to read local file', async () => {
    const fetch = loadFileForFetch(_url => `${__dirname}/../README.md`);

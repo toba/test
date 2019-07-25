@@ -1,7 +1,7 @@
 {
    "name": "@toba/test",
    "description": "Toba Test",
-   "version": "4.1.0",
+   "version": "4.1.1",
    "private": false,
    "publishConfig": {
       "access": "public"
@@ -36,7 +36,7 @@
       "@babel/plugin-proposal-class-properties": "^7.5.5",
       "@babel/plugin-syntax-dynamic-import": "^7.2.0",
       "@babel/preset-env": "^7.5.5",
-      "@toba/tools": "^6.6.6",
+      "@toba/tools": "^6.6.7",
       "@types/jest": "^24.0.15",
       "babel-plugin-dynamic-import-node": "^2.3.0",
       "core-js": "^3.1.4",

@@ -1,5 +1,6 @@
 import * as fs from 'fs';
 import { Encoding, HttpStatus } from '@toba/tools';
+import { bindGlobal } from './mock-global';
 
 /**
  * Mock Fetch response.
@@ -65,6 +66,6 @@ export function mockFetch(
 ): jest.Mock<Promise<MockResponse>> {
    const fetch = jest.fn();
    fetch.mockImplementation(loadFileForFetch(mapUrlToFile));
-   window.fetch = fetch;
+   bindGlobal('fetch', fetch);
    return fetch;
 }
