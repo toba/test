@@ -26,17 +26,17 @@
    },
    "license": "MIT",
    "devDependencies": {
-      "@toba/develop": "^6.5.3",
+      "@toba/develop": "^6.6.1",
       "@types/babel-core": "^6.25.5",
-      "@types/node": "^12.0.0",
-      "@types/node-fetch": "^2.3.7"
+      "@types/node": "^12.6.8",
+      "@types/node-fetch": "^2.5.0"
    },
    "dependencies": {
-      "@babel/core": "^7.5.0",
-      "@babel/plugin-proposal-class-properties": "^7.5.0",
+      "@babel/core": "^7.5.5",
+      "@babel/plugin-proposal-class-properties": "^7.5.5",
       "@babel/plugin-syntax-dynamic-import": "^7.2.0",
-      "@babel/preset-env": "^7.5.0",
-      "@toba/tools": "^6.6.2",
+      "@babel/preset-env": "^7.5.5",
+      "@toba/tools": "^6.6.6",
       "@types/jest": "^24.0.15",
       "babel-plugin-dynamic-import-node": "^2.3.0",
       "core-js": "^3.1.4",
