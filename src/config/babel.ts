@@ -1,20 +1,10 @@
 export const config = {
    plugins: [
-      // https://babeljs.io/docs/en/babel-plugin-transform-react-jsx
-      '@babel/plugin-transform-react-jsx',
       '@babel/plugin-proposal-class-properties',
       // needed to allow dynamic import() syntax
       '@babel/plugin-syntax-dynamic-import',
       // needed to mock dynamic imports for Node (Jest) execution
-      'dynamic-import-node',
-      // https://github.com/dosentmatter/babel-plugin-const-enum
-      [
-         'const-enum',
-         {
-            // converts enum to a regular object for sake of testing
-            transform: 'constObject'
-         }
-      ]
+      'dynamic-import-node'
    ],
    presets: [
       [
@@ -22,10 +12,9 @@ export const config = {
          {
             useBuiltIns: 'usage',
             // https://github.com/zloirock/core-js/blob/master/docs/2019-03-19-core-js-3-babel-and-a-look-into-the-future.md#babelpreset-env
-            corejs: 3,
+            corejs: 3.1,
             targets: { node: 'current' }
          }
-      ],
-      '@babel/preset-typescript'
+      ]
    ]
 };

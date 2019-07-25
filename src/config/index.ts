@@ -1,7 +1,9 @@
+import { defaults as tsJest } from 'ts-jest/presets';
+
 /**
  * Published library source code folder.
  */
-const libFolder = 'src';
+const srcFolder = 'src';
 /**
  * Mono-repo packages folder.
  */
@@ -70,21 +72,23 @@ const match = (types: string[]) => `\\.(${types.join('|')})$`;
  * Default Jest configuration.
  */
 module.exports = {
-   // Custom transformer is actually the default Babel transformer, changed only
-   // to use internal Babel configuration instead of requiring every project to
-   // have a babel.config.js file.
    transform: {
-      '^.+\\.[jt]sx?$': `<rootDir>${root}jest/transformers.js`
+      ...tsJest.transform,
+      // Custom transformer is actually the default Babel transformer, changed
+      // only to use internal Babel configuration instead of requiring every
+      // project to have a babel.config.js file.
+      '^.+\\.jsx?$': `<rootDir>${root}jest/transformers.js`
    },
+   testEnvironment: 'node',
    automock: false,
    testURL: 'http://localhost/',
    setupFiles: [root + 'jest/setup.js'],
    collectCoverage: false,
    collectCoverageFrom: [
       `${pkgFolder}/**/*.ts`,
-      `${libFolder}/**/*.ts`,
-      `!${libFolder}/**/*.d.ts`,
-      `!${libFolder}/**/types.ts`,
+      `${srcFolder}/**/*.ts`,
+      `!${srcFolder}/**/*.d.ts`,
+      `!${srcFolder}/**/types.ts`,
       `!${pkgFolder}/**/*.d.ts`,
       `!${pkgFolder}/**/types.ts`
    ],
@@ -94,8 +98,6 @@ module.exports = {
       `<rootDir>${transformPath}`,
       `<rootDir>/${pkgFolder}/[-a-z0-9]+${transformPath}`
    ],
-   testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$',
-   moduleFileExtensions: codeTypes,
    /**
     * Allow style and asset `import`s to be recognized but process them with
     * no-op methods.

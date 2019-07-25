@@ -8,7 +8,7 @@ const modulePath = '<rootDir>/node_modules/';
 
 test('transforms TypeScript modules and ignores others', () => {
    expect(config.transformIgnorePatterns).toBeInstanceOf(Array);
-   const re = new RegExp(config.transformIgnorePatterns[0]);
+   const re = new RegExp(config.transformIgnorePatterns![0]);
 
    ['@toba', '@trailimage'].forEach(name => {
       expect(re.test(modulePath + name)).toBe(false);
@@ -18,5 +18,6 @@ test('transforms TypeScript modules and ignores others', () => {
       expect(re.test(modulePath + name)).toBe(true);
    });
 
-   expect(Object.keys(config.moduleNameMapper)).toHaveLength(2);
+   expect(config.moduleNameMapper).toBeDefined();
+   expect(Object.keys(config.moduleNameMapper!)).toHaveLength(2);
 });
