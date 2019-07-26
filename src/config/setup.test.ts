@@ -10,6 +10,10 @@ test('storage should be defined by the mock', () => {
    expect(localStorage).toBeDefined();
 });
 
+test('DOM should be defined', () => {
+   expect(document).toBeDefined();
+});
+
 test('current date should always return March 15, 2018', () => {
    const d = new Date();
    expect(d.getFullYear()).toBe(2018);

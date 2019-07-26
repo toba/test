@@ -73,13 +73,15 @@ const match = (types: string[]) => `\\.(${types.join('|')})$`;
  */
 module.exports = {
    transform: {
+      // Use TS-Jest for TypeScript so as not to lose features
+      // https://kulshekhar.github.io/ts-jest/user/babel7-or-ts
       ...tsJest.transform,
-      // Custom transformer is actually the default Babel transformer, changed
-      // only to use internal Babel configuration instead of requiring every
-      // project to have a babel.config.js file.
+      // For everything else, this custom transformer is actually the default
+      // Babel transformer, changed only to use internal Babel configuration
+      // instead of requiring every project to have a babel.config.js file.
       '^.+\\.jsx?$': `<rootDir>${root}jest/transformers.js`
    },
-   testEnvironment: 'node',
+   testEnvironment: 'JSDOM',
    automock: false,
    testURL: 'http://localhost/',
    setupFiles: [root + 'jest/setup.js'],
