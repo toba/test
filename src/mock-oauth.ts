@@ -1,4 +1,4 @@
-import { is } from '@toba/tools';
+import { is } from '@toba/node-tools';
 export type OAuthGetCallback = (err: any, content: string | null) => void;
 export type OAuthGet = (url: string, fn: OAuthGetCallback) => void;
 

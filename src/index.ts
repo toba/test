@@ -1,4 +1,5 @@
 // mockFetch must be imported before OAuth since OAuth may utilize a node-fetch mock
+export { readFile, readBigFile, loadStream, readFileText } from '@toba/node-tools';
 export { loadFileForFetch, mockFetch, MockFetch } from './mock-fetch';
 export {
    MockAuth,
@@ -10,7 +11,6 @@ export {
 export { MockResponse } from './mock-response';
 export { MockRequest } from './mock-request';
 export { MockExpressApp } from './mock-express';
-export { readFile, readBigFile, loadStream, readFileText } from './file';
 export { MemoryStream } from './memory-stream';
 
 import './helpers';

@@ -1,5 +1,5 @@
 import * as fs from 'fs';
-import { Encoding, HttpStatus } from '@toba/tools';
+import { Encoding, HttpStatus } from '@toba/node-tools';
 import { bindGlobal } from './mock-global';
 
 /**

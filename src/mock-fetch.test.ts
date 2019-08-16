@@ -1,5 +1,5 @@
 import path from 'path';
-import { HttpStatus } from '@toba/tools';
+import { HttpStatus } from '@toba/node-tools';
 import { loadFileForFetch, mockFetch } from './index';
 
 test('allows mock fetch to be defined', () => {

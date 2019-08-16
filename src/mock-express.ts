@@ -1,5 +1,5 @@
 import { EventEmitter } from 'events';
-import { is } from '@toba/tools';
+import { is } from '@toba/node-tools';
 import { IncomingMessage, ServerResponse, Server } from 'http';
 
 enum HandlerType {

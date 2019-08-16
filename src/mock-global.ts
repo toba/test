@@ -1,4 +1,4 @@
-import { ValueType } from '@toba/tools';
+import { ValueType } from '@toba/node-tools';
 
 /**
  * Add method to global scope.

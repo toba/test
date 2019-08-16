@@ -1,4 +1,4 @@
-import { HttpStatus, MimeType, Encoding, Header, is } from '@toba/tools';
+import { HttpStatus, MimeType, Encoding, Header, is } from '@toba/node-tools';
 import * as util from 'util';
 import { ServerResponse, IncomingMessage } from 'http';
 import { MockRequest } from './index';

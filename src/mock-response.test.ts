@@ -1,5 +1,5 @@
 import './index';
-import { HttpStatus, Header } from '@toba/tools';
+import { HttpStatus, Header } from '@toba/node-tools';
 import { MockResponse } from './index';
 
 const res = new MockResponse();

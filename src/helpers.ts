@@ -1,4 +1,4 @@
-import { is, includesAll, HttpStatus } from '@toba/tools';
+import { is, includesAll, HttpStatus } from '@toba/node-tools';
 import { MockResponse } from './index';
 
 export interface ExpectResponse {

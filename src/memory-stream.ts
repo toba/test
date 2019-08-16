@@ -1,5 +1,5 @@
 import { Duplex } from 'stream';
-import { Encoding, is } from '@toba/tools';
+import { Encoding, is } from '@toba/node-tools';
 
 /**
  * Duplex stream that can be used to test methods that expect streams.
