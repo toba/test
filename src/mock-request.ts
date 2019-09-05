@@ -100,8 +100,8 @@ export class MockRequest extends IncomingMessage {
       return null;
    }
 
-   param(_name: string, _defaultValue?: any): string | null {
-      return null;
+   param(_name: string, _defaultValue?: any): string {
+      return '';
    }
 
    is(_type: string): string | false {
