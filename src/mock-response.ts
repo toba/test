@@ -141,7 +141,7 @@ export class MockResponse extends ServerResponse {
    render(
       template: string,
       context?: { [key: string]: any },
-      callback?: (err: Error, output: string) => void
+      callback?: (err: Error | any, output: string) => void
    ) {
       if (is.value<{ [key: string]: any }>(context)) {
          delete context['config'];
@@ -152,7 +152,7 @@ export class MockResponse extends ServerResponse {
       if (is.callable(callback)) {
          // error cannot be null because the Express type definition does not
          // allow null
-         callback(new Error(), util.inspect(this.rendered));
+         callback(null, util.inspect(this.rendered));
       }
       if (this.endOnRender) {
          this.end();
