@@ -82,7 +82,7 @@ module.exports = {
       // instead of requiring every project to have a babel.config.js file.
       '^.+\\.jsx?$': `<rootDir>${root}jest/transformers.js`
    },
-   testEnvironment: 'JSDOM',
+   testEnvironment: 'jsdom',
    automock: false,
    testURL: 'http://localhost/',
    setupFiles: [root + 'jest/setup.js'],
