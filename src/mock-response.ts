@@ -267,8 +267,8 @@ export class MockResponse extends ServerResponse {
       }
    }
 
-   get(_field: string): string | null {
-      return null;
+   get(_field: string): string {
+      return '';
    }
 
    cookie(name: string, val: any): any;

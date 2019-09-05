@@ -1,7 +1,7 @@
 {
    "name": "@toba/test",
    "description": "Toba Test",
-   "version": "4.1.6",
+   "version": "4.1.7",
    "private": false,
    "publishConfig": {
       "access": "public"
@@ -20,8 +20,8 @@
    },
    "scripts": {
       "prepublishOnly": "npm run build & npm run buildJest",
-      "build": "tsc --project tsconfig.build.json",
-      "buildJest": "tsc --project ./src/config/tsconfig.json",
+      "build": "./node_modules/.bin/tsc --project tsconfig.build.json",
+      "buildJest": "./node_modules/.bin/tsc --project ./src/config/tsconfig.json",
       "test": "./node_modules/.bin/jest --coverage --no-cache"
    },
    "license": "MIT",
@@ -42,7 +42,7 @@
       "babel-plugin-dynamic-import-node": "^2.3.0",
       "core-js": "^3.2.1",
       "fake-indexeddb": "^2.1.1",
-      "jest": "^24.8.0",
+      "jest": "^24.9.0",
       "jest-date-mock": "^1.0.6",
       "jest-localstorage-mock": "^2.4.0",
       "ts-jest": "^24.0.2"

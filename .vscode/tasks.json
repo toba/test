@@ -19,7 +19,7 @@
          "presentation": {
             "clear": true
          },
-         "command": "tsc",
+         "command": "./node_modules/.bin/tsc",
          "args": ["--project", "tsconfig.build.json"],
          "type": "shell",
          "group": "build",
@@ -30,7 +30,7 @@
          "presentation": {
             "clear": true
          },
-         "command": "tsc",
+         "command": "./node_modules/.bin/tsc",
          "args": ["--project", "./src/config/tsconfig.json"],
          "type": "shell",
          "group": "build",
