@@ -1,5 +1,10 @@
 // mockFetch must be imported before OAuth since OAuth may utilize a node-fetch mock
-export { readFile, readBigFile, loadStream, readFileText } from '@toba/node-tools';
+export {
+   readFile,
+   readBigFile,
+   loadStream,
+   readFileText
+} from '@toba/node-tools';
 export { loadFileForFetch, mockFetch, MockFetch } from './mock-fetch';
 export {
    MockAuth,
@@ -68,7 +73,8 @@ declare global {
 
       namespace NodeJS {
          interface Global {
-            fetch: GlobalFetch | MockFetch;
+            // https://devblogs.microsoft.com/typescript/announcing-typescript-3-6/#dom-updates
+            fetch: MockFetch;
          }
       }
    }
