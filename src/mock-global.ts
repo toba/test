@@ -1,4 +1,4 @@
-import { ValueType } from '@toba/node-tools';
+import { ValueType } from '@toba/node-tools'
 
 /**
  * Add method to global scope.
@@ -6,19 +6,14 @@ import { ValueType } from '@toba/node-tools';
  * @param fn Method
  */
 export function bindGlobal(name: string, fn: Function) {
-   const g: any = getGlobal();
-   g[name] = fn.bind(g);
+   const g: any = getGlobal()
+   g[name] = fn.bind(g)
 }
 
 function getGlobal(): Window | NodeJS.Global {
-   if (typeof self !== ValueType.Undefined) {
-      return self;
-   }
-   if (typeof window !== ValueType.Undefined) {
-      return window;
-   }
-   if (typeof global !== ValueType.Undefined) {
-      return global;
-   }
-   throw new Error('Unable to identify global object');
+   if (typeof self !== ValueType.Undefined) return self
+   if (typeof window !== ValueType.Undefined) return window
+   if (typeof global !== ValueType.Undefined) return global
+
+   throw new Error('Unable to identify global object')
 }

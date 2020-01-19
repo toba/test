@@ -1,6 +1,6 @@
-import { is } from '@toba/node-tools';
-export type OAuthGetCallback = (err: any, content: string | null) => void;
-export type OAuthGet = (url: string, fn: OAuthGetCallback) => void;
+import { is } from '@toba/node-tools'
+export type OAuthGetCallback = (err: any, content: string | null) => void
+export type OAuthGet = (url: string, fn: OAuthGetCallback) => void
 
 /**
  * Match fetch type. Must include `any` because DOM `fetch` and Node `fetch`
@@ -9,16 +9,16 @@ export type OAuthGet = (url: string, fn: OAuthGetCallback) => void;
 type Fetch = (
    url: string | Request | any,
    init?: RequestInit | any
-) => Promise<Response | any>;
+) => Promise<Response | any>
 
-let mockGetter: OAuthGet | null = null;
+let mockGetter: OAuthGet | null = null
 
 /**
  * Assign URL getter to use in the `OAuth.get()` method. This is more generic
  * than using `oAuthGetWithFetch()` since the fetch API is known.
  */
 export function useOAuthGetter(getter: OAuthGet): void {
-   mockGetter = getter;
+   mockGetter = getter
 }
 
 /**
@@ -29,12 +29,12 @@ export function oAuthGetWithFetch(fetch: Fetch): void {
       fetch(url)
          .then(res => res.text())
          .then(body => {
-            callback(null, body);
+            callback(null, body)
          })
          .catch(err => {
-            callback(err, null);
-         });
-   };
+            callback(err, null)
+         })
+   }
 }
 
 type OAuth1TokenCallback = (
@@ -42,7 +42,7 @@ type OAuth1TokenCallback = (
    token: string,
    secret: string,
    parsedQueryString: any
-) => any;
+) => any
 
 /**
  * Mock the OAuth client imported by `@toba/oauth` by adding an `oauth.ts` to
@@ -51,11 +51,11 @@ type OAuth1TokenCallback = (
  * `export { MockAuth as OAuth } from '@toba/test'`
  */
 export class MockAuth {
-   urls: { [key: string]: string };
+   urls: { [key: string]: string }
    last: {
-      accessToken: string | null;
-      secret: string | null;
-   };
+      accessToken: string | null
+      secret: string | null
+   }
 
    constructor(
       requestTokenUrl: string,
@@ -70,11 +70,11 @@ export class MockAuth {
          requestTokenUrl,
          accessTokenUrl,
          callbackUrl
-      };
+      }
       this.last = {
          accessToken: null,
          secret: null
-      };
+      }
    }
 
    /**
@@ -87,11 +87,11 @@ export class MockAuth {
       secret: string,
       callback: OAuthGetCallback
    ) {
-      this.last.accessToken = accessToken;
-      this.last.secret = secret;
+      this.last.accessToken = accessToken
+      this.last.secret = secret
 
       if (mockGetter !== null) {
-         mockGetter(url, callback);
+         mockGetter(url, callback)
       }
    }
 
@@ -100,13 +100,13 @@ export class MockAuth {
       secret: string,
       verifier: string,
       callback: OAuth1TokenCallback
-   ): void;
+   ): void
 
    getOAuthAccessToken(
       requestToken: string,
       secret: string,
       callback: OAuth1TokenCallback
-   ): void;
+   ): void
 
    getOAuthAccessToken(
       _requestToken: string,
@@ -115,7 +115,7 @@ export class MockAuth {
       callback?: OAuth1TokenCallback
    ): void {
       if (is.callable(verifierOrCallback)) {
-         callback = verifierOrCallback;
+         callback = verifierOrCallback
       }
 
       callback!(
@@ -123,23 +123,23 @@ export class MockAuth {
          'mock-access-token',
          'mock-access-secret',
          'mock-query-string'
-      );
+      )
    }
 
-   getOAuthRequestToken(params: any, callback: OAuth1TokenCallback): void;
-   getOAuthRequestToken(callback: OAuth1TokenCallback): void;
+   getOAuthRequestToken(params: any, callback: OAuth1TokenCallback): void
+   getOAuthRequestToken(callback: OAuth1TokenCallback): void
    getOAuthRequestToken(
       paramsOrCallback: any,
       callback?: OAuth1TokenCallback
    ): void {
       if (!is.callable(callback)) {
-         callback = paramsOrCallback;
+         callback = paramsOrCallback
       }
       callback!(
          null,
          'mock-request-token',
          'mock-request-secret',
          'mock-query-string'
-      );
+      )
    }
 }

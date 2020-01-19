@@ -1,43 +1,28 @@
-import 'jest';
-import { defaults as tsJest } from 'ts-jest/presets';
+import 'jest'
+import { defaults as tsJest } from 'ts-jest/presets'
 
 /**
  * Published library source code folder.
  */
-const srcFolder = 'src';
+const srcFolder = 'src'
 /**
  * Mono-repo packages folder.
  */
-const pkgFolder = 'packages';
+const pkgFolder = 'packages'
 
 /**
  * Normal module file types.
  */
-const codeTypes = ['ts', 'tsx', 'js', 'jsx', 'json', 'node'];
+const codeTypes = ['ts', 'tsx', 'js', 'jsx', 'json', 'node']
 /**
  * CSS style types.
  */
-const styleTypes = ['css', 'less', 'scss'];
+const styleTypes = ['css', 'less', 'scss']
+// prettier-ignore
 const assetTypes = [
-   'jpg',
-   'jpeg',
-   'png',
-   'gif',
-   'eot',
-   'otf',
-   'webp',
-   'svg',
-   'ttf',
-   'woff',
-   'woff2',
-   'mp4',
-   'webm',
-   'wav',
-   'mp3',
-   'm4a',
-   'aac',
-   'oga'
-];
+   'jpg','jpeg','png','gif','eot','otf','webp','svg','ttf',
+   'woff','woff2','mp4','webm','wav','mp3','m4a','aac','oga'
+]
 
 /**
  * Modules that are published as TypeScript or ES6 modules rather than as
@@ -47,27 +32,25 @@ const assetTypes = [
  * @see https://github.com/kulshekhar/ts-jest/issues/588
  * @see https://github.com/kulshekhar/ts-jest/issues/439
  */
-const typeScriptModuleScopes = ['toba', 'trailimage'];
+const typeScriptModuleScopes = ['toba', 'trailimage']
 
 /**
  * Path that should *not* be transformed is everything except TypeScript or ES6
  * module paths which *should* be transformed for tests.
  */
-const transformPath = `/node_modules/(?!@(${typeScriptModuleScopes.join(
-   '|'
-)}))`;
+const transformPath = `/node_modules/(?!@(${typeScriptModuleScopes.join('|')}))`
 
 /**
  * Relative path from Jest working directory.
  */
 const root = __dirname.includes('node_modules')
    ? './node_modules/@toba/test/'
-   : './';
+   : './'
 
 /**
  * Create pattern that matches any of the given file types.
  */
-const match = (types: string[]) => `\\.(${types.join('|')})$`;
+const match = (types: string[]) => `\\.(${types.join('|')})$`
 
 /**
  * Default Jest configuration.
@@ -110,4 +93,4 @@ module.exports = {
       [match(assetTypes)]: `<rootDir>${root}jest/stub.js`,
       [match(styleTypes)]: `<rootDir>${root}jest/echo-proxy.js`
    }
-} as Partial<jest.DefaultOptions>;
+} as Partial<jest.DefaultOptions>

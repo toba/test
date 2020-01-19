@@ -1,4 +1,4 @@
-import * as babelJest from 'babel-jest';
-import { config } from './babel';
+import * as babelJest from 'babel-jest'
+import { config } from './babel'
 
-module.exports = babelJest.createTransformer(config);
+module.exports = babelJest.createTransformer(config)

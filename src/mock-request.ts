@@ -1,129 +1,129 @@
-import { IncomingMessage } from 'http';
-import { Socket } from 'net';
+import { IncomingMessage } from 'http'
+import { Socket } from 'net'
 
 export class MockSocket extends Socket {
    /**
     * https://nodejs.org/api/net.html#net_socket_remoteaddress
     */
-   mockRemoteAddress: string;
+   mockRemoteAddress: string
 
    get remoteAddress() {
-      return this.mockRemoteAddress;
+      return this.mockRemoteAddress
    }
 
    reset() {
-      this.mockRemoteAddress = '';
+      this.mockRemoteAddress = ''
    }
 }
 
 export class MockRequest extends IncomingMessage {
-   referer: string | null;
+   referer: string | null
    /** Querystring parameters */
-   params: { [key: string]: string };
-   headers: { [key: string]: string };
-   protocol: string;
-   secure: boolean;
-   ip: string;
-   ips: string[];
-   connection: MockSocket;
-   subdomains: string[];
-   path: string;
-   hostname: string;
-   host: string;
-   fresh: boolean;
-   stale: boolean;
-   xhr: boolean;
-   cookies: any;
-   method: string;
-   query: { [key: string]: string };
-   route: any;
-   signedCookies: any;
-   originalUrl: string;
-   url: string;
-   baseUrl: string;
-   app: any;
+   params: { [key: string]: string }
+   headers: { [key: string]: string }
+   protocol: string
+   secure: boolean
+   ip: string
+   ips: string[]
+   connection: MockSocket
+   subdomains: string[]
+   path: string
+   hostname: string
+   host: string
+   fresh: boolean
+   stale: boolean
+   xhr: boolean
+   cookies: any
+   method: string
+   query: { [key: string]: string }
+   route: any
+   signedCookies: any
+   originalUrl: string
+   url: string
+   baseUrl: string
+   app: any
 
    // added by Express body parser
-   body: { selected: string[] };
+   body: { selected: string[] }
 
    constructor() {
-      super(new MockSocket());
-      this.reset();
+      super(new MockSocket())
+      this.reset()
    }
 
    get(field: string): any {
       switch (field) {
          case 'referer':
-            return this.referer;
+            return this.referer
          case 'params':
-            return this.params;
+            return this.params
          default:
-            return null;
+            return null
       }
    }
 
-   header(name: 'set-cookie'): string[] | undefined;
-   header(name: string): string | undefined;
+   header(name: 'set-cookie'): string[] | undefined
+   header(name: string): string | undefined
    header(name: string | 'set-cookie'): string | string[] | undefined {
-      return this.headers[name];
+      return this.headers[name]
    }
 
-   accepts(): string[];
-   accepts(type: string): string | false;
-   accepts(type: string[]): string | false;
+   accepts(): string[]
+   accepts(type: string): string | false
+   accepts(type: string[]): string | false
    accepts(_type?: string | string[]): string | string[] | false {
-      return false;
+      return false
    }
 
-   acceptsCharsets(): string[];
-   acceptsCharsets(charset: string): string | false;
-   acceptsCharsets(charset: string[]): string | false;
+   acceptsCharsets(): string[]
+   acceptsCharsets(charset: string): string | false
+   acceptsCharsets(charset: string[]): string | false
    acceptsCharsets(_charset?: string | string[]): string | string[] | false {
-      return false;
+      return false
    }
 
-   acceptsEncodings(): string[];
-   acceptsEncodings(encoding: string): string | false;
-   acceptsEncodings(encoding: string[]): string | false;
+   acceptsEncodings(): string[]
+   acceptsEncodings(encoding: string): string | false
+   acceptsEncodings(encoding: string[]): string | false
    acceptsEncodings(_encoding?: string | string[]): string | string[] | false {
-      return false;
+      return false
    }
 
-   acceptsLanguages(): string[];
-   acceptsLanguages(lang: string): string | false;
-   acceptsLanguages(lang: string[]): string | false;
+   acceptsLanguages(): string[]
+   acceptsLanguages(lang: string): string | false
+   acceptsLanguages(lang: string[]): string | false
    acceptsLanguages(_lang?: string | string[]): string | string[] | false {
-      return false;
+      return false
    }
 
    range(_size: number): any {
-      return null;
+      return null
    }
 
    param(_name: string, _defaultValue?: any): string {
-      return '';
+      return ''
    }
 
    is(_type: string): string | false {
-      return false;
+      return false
    }
 
    clearCookie(_name: string, _options?: any): any {
-      return null;
+      return null
    }
 
-   accepted: any[];
+   accepted: any[]
 
    reset(): MockRequest {
-      this.referer = null;
-      this.params = {};
-      this.headers = {};
-      this.query = {};
+      this.referer = null
+      this.params = {}
+      this.headers = {}
+      this.query = {}
 
       if (this.connection) {
-         this.connection.reset();
+         this.connection.reset()
       }
-      this.body = { selected: [] };
-      return this;
+      this.body = { selected: [] }
+      return this
    }
 }

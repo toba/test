@@ -1,9 +1,9 @@
-import { is, includesAll, HttpStatus } from '@toba/node-tools';
-import { MockResponse } from './index';
+import { is, includesAll, HttpStatus } from '@toba/node-tools'
+import { MockResponse } from './index'
 
 export interface ExpectResponse {
-   message: () => string;
-   pass: boolean;
+   message: () => string
+   pass: boolean
 }
 
 /**
@@ -26,7 +26,7 @@ export const makeResponse = (
       : {
            message: () => `expected ${expectation}`,
            pass
-        };
+        }
 
 function toBeLatLng(
    this: jest.MatcherUtils,
@@ -37,11 +37,11 @@ function toBeLatLng(
       received[0] <= 180 &&
       received[0] >= -180 &&
       received[1] <= 90 &&
-      received[1] >= -90;
+      received[1] >= -90
    const text =
-      'to be a two-element array with a number between -180/180 and second number between -90/90';
+      'to be a two-element array with a number between -180/180 and second number between -90/90'
 
-   return makeResponse(pass, `${received} ${text}`, `${received} not ${text}`);
+   return makeResponse(pass, `${received} ${text}`, `${received} not ${text}`)
 }
 
 function toBeWithin<T extends number>(
@@ -50,10 +50,10 @@ function toBeWithin<T extends number>(
    min: number,
    max: number
 ): ExpectResponse {
-   const pass = received >= min && received <= max;
-   const text = `to be within ${min} and ${max}`;
+   const pass = received >= min && received <= max
+   const text = `to be within ${min} and ${max}`
 
-   return makeResponse(pass, `${received} ${text}`, `${received} not ${text}`);
+   return makeResponse(pass, `${received} ${text}`, `${received} not ${text}`)
 }
 
 function toHaveAllProperties<T extends Object>(
@@ -61,14 +61,14 @@ function toHaveAllProperties<T extends Object>(
    received: T,
    ...keys: string[]
 ): ExpectResponse {
-   const missing = keys.filter(k => !received.hasOwnProperty(k));
-   const pass = missing.length == 0;
+   const missing = keys.filter(k => !received.hasOwnProperty(k))
+   const pass = missing.length == 0
 
    return makeResponse(
       pass,
       `object to have properties ${missing.join(', ')}`,
       `object to not have all properties ${keys.join(', ')}`
-   );
+   )
 }
 
 function toHaveValues<U, T extends Set<U> | Map<any, U>>(
@@ -76,8 +76,8 @@ function toHaveValues<U, T extends Set<U> | Map<any, U>>(
    received: T,
    ...values: U[]
 ): ExpectResponse {
-   const setList = Array.from(received.values());
-   const pass = includesAll(setList, ...values);
+   const setList = Array.from(received.values())
+   const pass = includesAll(setList, ...values)
 
    return makeResponse(
       pass,
@@ -85,7 +85,7 @@ function toHaveValues<U, T extends Set<U> | Map<any, U>>(
          ', '
       )}`,
       `Set or Map to not have all values ${values.join(', ')}`
-   );
+   )
 }
 
 function toHaveKeyValue<K, V>(
@@ -94,13 +94,13 @@ function toHaveKeyValue<K, V>(
    key: K,
    value: V
 ): ExpectResponse {
-   const pass = received.has(key) && received.get(key) === value;
+   const pass = received.has(key) && received.get(key) === value
 
    return makeResponse(
       pass,
       `Map to have key "${key}" with value "${value}"`,
       `Map not to have key "${key}" with value "${value}"`
-   );
+   )
 }
 
 function toHaveKeys<U, T extends Map<U, any>>(
@@ -108,14 +108,16 @@ function toHaveKeys<U, T extends Map<U, any>>(
    received: T,
    ...keys: U[]
 ): ExpectResponse {
-   const setList = Array.from(received.keys());
-   const pass = includesAll(setList, ...keys);
+   const setList = Array.from(received.keys())
+   const pass = includesAll(setList, ...keys)
 
    return makeResponse(
       pass,
-      `Map to have ${keys.length} keys ${keys.join(', ')} but found ${setList.join(', ')}`,
+      `Map to have ${keys.length} keys ${keys.join(
+         ', '
+      )} but found ${setList.join(', ')}`,
       `Map to not have all keys ${keys.join(', ')}"`
-   );
+   )
 }
 
 /**
@@ -129,17 +131,15 @@ function toRenderTemplate(
    const pass =
       received.statusCode == HttpStatus.OK &&
       is.value(received.rendered) &&
-      received.rendered.template == name;
+      received.rendered.template == name
 
-   let msg = `to render "${name}" with status ${HttpStatus.OK}`;
+   let msg = `to render "${name}" with status ${HttpStatus.OK}`
 
    if (!pass) {
-      msg += ` but received status ${received.statusCode} for "${
-         received.rendered.template
-      }"`;
+      msg += ` but received status ${received.statusCode} for "${received.rendered.template}"`
    }
 
-   return makeResponse(pass, `response ${msg}`, `response not ${msg}`);
+   return makeResponse(pass, `response ${msg}`, `response not ${msg}`)
 }
 
 /**
@@ -153,17 +153,15 @@ function toRedirectTo(
    const pass =
       is.defined(received, 'redirected') &&
       received.redirected.status == HttpStatus.PermanentRedirect &&
-      received.redirected.url == url;
+      received.redirected.url == url
 
-   let msg = `to ${HttpStatus.PermanentRedirect} redirect to "${url}"`;
+   let msg = `to ${HttpStatus.PermanentRedirect} redirect to "${url}"`
 
    if (!pass) {
-      msg += ` but received ${received.redirected.status} redirect to "${
-         received.redirected.url
-      }"`;
+      msg += ` but received ${received.redirected.status} redirect to "${received.redirected.url}"`
    }
 
-   return makeResponse(pass, `response ${msg}`, `response not ${msg}`);
+   return makeResponse(pass, `response ${msg}`, `response not ${msg}`)
 }
 
 /**
@@ -178,4 +176,4 @@ expect.extend({
    toHaveAllProperties,
    toRenderTemplate,
    toRedirectTo
-});
+})

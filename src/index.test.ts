@@ -1,20 +1,20 @@
-import { lipsum, sleep } from './index';
-import { default as config } from './config/';
+import { lipsum, sleep } from './index'
+import { default as config } from './config/'
 
 test('helpers are defined', () => {
-   expect(lipsum).toBeDefined();
-   expect(typeof lipsum).toBe('string');
-});
+   expect(lipsum).toBeDefined()
+   expect(typeof lipsum).toBe('string')
+})
 
 test('common Jest configuration', () => {
-   expect(config).toBeDefined();
+   expect(config).toBeDefined()
    // enabling coverage breaks VSCode debugging
    // intead use --coverage when running
-   expect(config).toHaveProperty('collectCoverage', false);
-   expect(config).toHaveProperty('coverageReporters');
-});
+   expect(config).toHaveProperty('collectCoverage', false)
+   expect(config).toHaveProperty('coverageReporters')
+})
 
 test('sleep', async () => {
-   await sleep(10);
-   expect(2).toBe(2);
-});
+   await sleep(10)
+   expect(2).toBe(2)
+})
