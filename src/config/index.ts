@@ -1,4 +1,5 @@
 import 'jest'
+import type { Config } from '@jest/types'
 import { defaults as tsJest } from 'ts-jest/presets'
 
 /**
@@ -93,4 +94,4 @@ module.exports = {
       [match(assetTypes)]: `<rootDir>${root}jest/stub.js`,
       [match(styleTypes)]: `<rootDir>${root}jest/echo-proxy.js`
    }
-} as Partial<jest.DefaultOptions>
+} as Partial<Config.DefaultOptions>

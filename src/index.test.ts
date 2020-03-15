@@ -1,5 +1,5 @@
 import { lipsum, sleep } from './index'
-import { default as config } from './config/'
+import * as config from './config/'
 
 test('helpers are defined', () => {
    expect(lipsum).toBeDefined()
