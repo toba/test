@@ -1,7 +1,7 @@
 {
    "name": "@toba/test",
    "description": "Toba Test",
-   "version": "4.2.1",
+   "version": "4.2.2",
    "private": false,
    "publishConfig": {
       "access": "public"
@@ -26,17 +26,17 @@
    },
    "license": "MIT",
    "devDependencies": {
-      "@toba/develop": "^6.8.1",
+      "@toba/develop": "^6.8.2",
       "@types/babel-core": "^6.25.5",
-      "@types/node": "^13.9.1",
+      "@types/node": "^13.9.3",
       "@types/node-fetch": "^2.5.5"
    },
    "dependencies": {
-      "@babel/core": "^7.8.7",
+      "@babel/core": "^7.9.0",
       "@babel/plugin-proposal-class-properties": "^7.8.3",
       "@babel/plugin-syntax-dynamic-import": "^7.8.3",
-      "@babel/preset-env": "^7.8.7",
-      "@toba/node-tools": "^1.5.3",
+      "@babel/preset-env": "^7.9.0",
+      "@toba/node-tools": "^1.5.4",
       "@types/jest": "^25.1.4",
       "babel-jest": "^25.1.0",
       "babel-plugin-dynamic-import-node": "^2.3.0",
