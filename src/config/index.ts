@@ -1,6 +1,6 @@
 import 'jest'
 import type { Config } from '@jest/types'
-import { defaults as tsJest } from 'ts-jest/presets'
+import { defaults as tsJest } from 'ts-jest/dist/presets/'
 
 /**
  * Published library source code folder.
@@ -21,8 +21,8 @@ const codeTypes = ['ts', 'tsx', 'js', 'jsx', 'json', 'node']
 const styleTypes = ['css', 'less', 'scss']
 // prettier-ignore
 const assetTypes = [
-   'jpg','jpeg','png','gif','eot','otf','webp','svg','ttf',
-   'woff','woff2','mp4','webm','wav','mp3','m4a','aac','oga'
+   'jpg', 'jpeg', 'png', 'gif', 'eot', 'otf', 'webp', 'svg', 'ttf',
+   'woff', 'woff2', 'mp4', 'webm', 'wav', 'mp3', 'm4a', 'aac', 'oga'
 ]
 
 /**

@@ -7,6 +7,7 @@ export class MockSocket extends Socket {
     */
    mockRemoteAddress: string
 
+   // @ts-ignore
    get remoteAddress() {
       return this.mockRemoteAddress
    }
