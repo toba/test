@@ -164,12 +164,14 @@ export class MockResponse extends ServerResponse {
       let encoding: string = Encoding.UTF8
 
       if (cb !== undefined) {
-         encoding = encodingOrCb as string
+         encoding = encodingOrCb as BufferEncoding
       } else {
          cb = encodingOrCb as Function
       }
 
-      const text = Buffer.isBuffer(chunk) ? chunk.toString(encoding) : chunk
+      const text = Buffer.isBuffer(chunk)
+         ? chunk.toString(encoding as BufferEncoding)
+         : chunk
       this.content = this.content === null ? text : this.content + text
 
       if (is.callable(cb)) cb()
@@ -194,11 +196,11 @@ export class MockResponse extends ServerResponse {
       this.rendered = {
          template: null,
          context: null,
-         json: null
+         json: null,
       }
       this.redirected = {
          status: null,
-         url: null
+         url: null,
       }
 
       if (alsoResetRequest && this.isMockRequest) {

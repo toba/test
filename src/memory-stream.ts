@@ -16,8 +16,8 @@ export class MemoryStream extends Duplex {
     */
    writeWasCalled: boolean = false
 
-   _write(data: Buffer, encoding: Encoding, cb?: () => void) {
-      if (encoding == Encoding.Buffer) {
+   _write(data: Buffer, encoding: BufferEncoding, cb?: () => void) {
+      if (encoding == Encoding.Binary) {
          this.text += data.toString(Encoding.UTF8)
       } else {
          this.text += data
